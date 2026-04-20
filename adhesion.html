@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Adhésion</title>
-
-<link rel="stylesheet" href="css/adhesion.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adhésion – Yaakaar Takku Suxali Walo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/adhesion.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 <header class="header-wrap">
@@ -19,21 +15,20 @@
   <!-- TOP BAR -->
   <div class="top-bar">
 
-    <div class="logo-area">
-      <img src="images/logo1.png" alt="Logo" class="logo-icon">
-      
-      <div class="logo-text">
-        <div class="line1">Yaakaar Takku</div>
-        <div class="line1">Suxali Walo</div>
-      </div>
-    </div>
+    <a href="index.html" class="logo-area">
+  <img src="images/logo1.png" alt="Logo" class="logo-icon">
+  
+  <div class="logo-text">
+    <div class="line1">Yaakaar Takku</div>
+    <div class="line1">Suxali Walo</div>
+  </div>
+</a>
 
-    <div class="cta-group">
-      <button class="btn-cta">J'adhère</button>
-      <button class="btn-cta outline">Je donne</button>
-      <button class="btn-cta">Espace Militant</button>
-      <button class="btn-cta outline">Boutique</button>
-    </div>
+   <div class="cta-group">
+  <button class="btn-cta" onclick="window.location.href='adhesion.html'">J'adhère</button>
+  <button class="btn-cta" onclick="window.location.href='test.html'">Espace Militant</button>
+  <button class="btn-cta outline" id="contactBtn">Contact</button>
+</div>
 
   </div>
 
@@ -41,14 +36,11 @@
   <div class="nav-bar">
 
     <ul class="nav-links">
-      <li><a href="#" class="active">Qui sommes-nous ?</a></li>
-      <li><a href="#">L'actu</a></li>
-      <li><a href="#">Agir</a></li>
-      <li><a href="#">Presse</a></li>
-      <li><a href="#">Repères</a></li>
-      <li><a href="#">Projet</a></li>
-      <li><a href="#">Budget 2026</a></li>
-      <li><a href="#">Municipales</a></li>
+      <li><a href="index.html">Acceuil</a></li>
+      <li><a href="test.html" class="active">Qui sommes-nous ?</a></li>
+      <li><a href="test.html">Actualités</a></li>
+      <li><a href="test.html">Projet</a></li>
+      <li><a href="test.html">Municipales 2027</a></li>
     </ul>
 
       <!-- SOCIAL À DROITE -->
@@ -57,39 +49,49 @@
 
       <!-- Twitter -->
       <div class="social-icon">
+       <a href="https://x.com/?lang=fr" target="_blank">
         <svg width="14" height="14" viewBox="0 0 24 24">
           <path d="M24 4.56a9.83 9.83 0 0 1-2.83.78 4.93 4.93 0 0 0 2.16-2.72c-.95.56-2 .96-3.12 1.19a4.92 4.92 0 0 0-8.38 4.49A13.96 13.96 0 0 1 1.64 3.16a4.92 4.92 0 0 0 1.52 6.57A4.9 4.9 0 0 1 .96 9.1v.06a4.92 4.92 0 0 0 3.95 4.82 4.94 4.94 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.94 13.94 0 0 0 7.56 2.21c9.06 0 14.01-7.51 14.01-14.02 0-.21 0-.42-.02-.63A10 10 0 0 0 24 4.56z" fill="#1a8fe3"/>
         </svg>
+       </a>
       </div>
 
       <!-- Facebook -->
-      <div class="social-icon">
-        <svg width="14" height="14" viewBox="0 0 24 24">
-          <path d="M21.95 5.005l-3.306-.004c-3.206 0-5.277 2.124-5.277 5.415v2.495H10.05v4.515h3.317l-.004 9.575h4.641l.004-9.575h3.806l-.003-4.514h-3.803v-2.117c0-1.018.268-1.526 1.732-1.526l2.199-.005.006-4.259z" fill="#1a8fe3"/>
-        </svg>
-      </div>
+     <div class="social-icon">
+  <a href="https://www.facebook.com/yaakartakkusuxaliwalo" target="_blank">
+    <svg width="14" height="14" viewBox="0 0 24 24">
+      <path d="M21.95 5.005l-3.306-.004c-3.206 0-5.277 2.124-5.277 5.415v2.495H10.05v4.515h3.317l-.004 9.575h4.641l.004-9.575h3.806l-.003-4.514h-3.803v-2.117c0-1.018.268-1.526 1.732-1.526l2.199-.005.006-4.259z" fill="#1a8fe3"/>
+    </svg>
+  </a>
+</div>
 
       <!-- YouTube -->
       <div class="social-icon">
+       <a href="https://www.youtube.com/watch?v=uHSuhs0d7oE" target="_blank">
         <svg width="14" height="14" viewBox="0 0 24 24">
           <path d="M21.8 8s-.2-1.4-.8-2c-.77-.8-1.63-.81-2.02-.85C16.2 5 12 5 12 5s-4.2 0-6.98.15c-.4.04-1.25.05-2.02.85-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.77.8 1.78.77 2.23.85C6.8 18.97 12 19 12 19s4.2 0 6.98-.18c.4-.04 1.25-.05 2.02-.85.6-.6.8-2 .8-2S22 14.3 22 12.7v-1.5C22 9.6 21.8 8 21.8 8zM9.75 15.02V8.98l6.5 3.04-6.5 3z" fill="#1a8fe3"/>
         </svg>
+       </a>
       </div>
 
       <!-- Instagram -->
       <div class="social-icon">
+       <a href="https://www.instagram.com/?hl=fr" target="_blank">
         <svg width="14" height="14" viewBox="0 0 24 24">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="#1a8fe3" stroke-width="2"/>
           <circle cx="12" cy="12" r="4" fill="none" stroke="#1a8fe3" stroke-width="2"/>
           <circle cx="17.5" cy="6.5" r="1.5" fill="#1a8fe3"/>
         </svg>
+       </a>
       </div>
 
       <!-- Telegram -->
       <div class="social-icon">
+       <a href="https://web.telegram.org/a/" target="_blank">
         <svg width="14" height="14" viewBox="0 0 24 24">
           <path d="M9.5 16.5l-.4 4.5c.6 0 .9-.3 1.3-.6l3.1-3 6.5 4.7c1.2.7 2 .3 2.3-1.1l4.2-19.6c.4-1.8-.6-2.5-1.7-2.1L1.3 9.5c-1.7.7-1.7 1.6-.3 2l5.6 1.8L19.8 5.8c.6-.4 1.1-.2.7.2"/>
         </svg>
+       </a>
       </div>
 
   </div>
@@ -99,107 +101,551 @@
   <span></span>
 </div>
 </header>
-
-<!-- HERO -->
-
 <section class="adhesion-page">
-
   <div class="adhesion-container">
 
     <!-- LEFT -->
     <div class="adhesion-left">
-
-     
-
+      <div class="adhesion-tag">Mouvement citoyen</div>
       <h1>
         Rejoignez le mouvement<br>
         <span>Yaakaar Takku Suxali Walo</span>
       </h1>
-
       <p class="adhesion-desc">
-        Engagez-vous pour un avenir meilleur. Votre participation est essentielle pour construire un Walo plus fort, plus juste et plus solidaire.
+        Engagez-vous pour un avenir meilleur. Votre participation est essentielle
+        pour construire un Walo plus fort, plus juste et plus solidaire.
       </p>
 
       <form class="adhesion-form">
-
+        <!-- Nom -->
         <div class="input-group">
-          <input type="text" required>
+          <input type="text" placeholder=" " required>
           <label>Nom complet</label>
         </div>
 
-        <div class="input-group">
-          <input type="text">
-          <label>Région</label>
+        <!-- Région + Adresse -->
+        <div class="input-row">
+          <div class="input-group">
+            <input type="text" placeholder=" ">
+            <label>Région</label>
+          </div>
+          <div class="input-group">
+            <input type="text" placeholder=" ">
+            <label>Adresse</label>
+          </div>
         </div>
 
-        <div class="input-group">
-          <input type="text">
-          <label>Adresse</label>
+        <!-- Email + Téléphone -->
+        <div class="input-row">
+          <div class="input-group">
+            <input type="email" placeholder=" " required>
+            <label>Email</label>
+          </div>
+          <div class="input-group">
+            <input type="tel" placeholder=" ">
+            <label>Téléphone</label>
+          </div>
         </div>
 
+        <!-- Message -->
         <div class="input-group">
-          <input type="email" required>
-          <label>Email</label>
-        </div>
-
-        <div class="input-group">
-          <input type="tel">
-          <label>Téléphone</label>
-        </div>
-
-        <div class="input-group">
-          <textarea rows="4"></textarea>
+          <textarea rows="4" placeholder=" "></textarea>
           <label>Votre message</label>
         </div>
 
-        <button class="adhesion-btn">
-          Je deviens membre
-        </button>
-
+        <button type="submit" class="adhesion-btn">Je deviens membre</button>
       </form>
-
     </div>
 
     <!-- RIGHT -->
     <div class="adhesion-right">
-
       <div class="map-card">
         <div id="map"></div>
-
         <div class="map-overlay">
-  <div class="map-title">Notre siège</div>
+          <div class="map-title">Notre siège</div>
+          <div class="map-line">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#1a8fe3"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+            Walo, Sénégal
+          </div>
+          <div class="map-line">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a8fe3" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.22 2 2 0 012.03 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            +221 78 545 73 29
+          </div>
+        </div>
+      </div>
 
-  <div class="map-line">
-    📍 Walo, Sénégal
-  </div>
+      <!-- Info card -->
+      <div class="info-card">
+        <div class="info-row">
+          <div class="info-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a8fe3" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="info-text">
+            <p>Horaires d'accueil</p>
+            <strong>Lun–Ven, 9h–17h</strong>
+          </div>
+        </div>
+        <div class="info-divider"></div>
+        <div class="info-row">
+          <div class="info-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a8fe3" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="info-text">
+            <p>Email</p>
+            <strong>contact@yaakaar-walo.sn</strong>
+          </div>
+        </div>
+		<div class="info-divider"></div>
+        <div class="info-row">
+          <div class="info-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a8fe3" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.22 2 2 0 012.03 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div class="info-text">
+            <p>Téléphone</p>
+            <strong>+221 78 545 73 29</strong>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <div class="map-line">
-    📞 +221 78 545 73 29
   </div>
-</div>
+</section>
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- COL 1 -->
+    <a href="index.html" class="footer-col">
+      <img src="images/logo4.png" alt="Logo" class="footer-logo">
+    </a>
+
+    <!-- COL 2 -->
+    <div class="footer-col">
+      <h4>MENU</h4>
+      <ul>
+        <li><a href="index.html">Acceuil</a></li>
+        <li><a href="test.html">Qui sommes-nous ?</a></li>
+        <li><a href="test.html">Actualités</a></li>
+        <li><a href="test.html">Projet</a></li>
+        <li><a href="test.html">Municipales 2027</a></li>
+      </ul>
+    </div>
+
+    <!-- COL 3 -->
+    <div class="footer-col">
+      <h4>REJOIGNEZ-NOUS</h4>
+      <ul>
+        <li><a href="adhesion.html">Je m'engage</a></li>
+        <li><a href="adhesion.html">Adhérer en ligne</a></li>
+        <li><a href="#">Adhérer par courrier</a></li>
+        <li><a href="adhesion.html">Militer</a></li>
+        <li><a href="#" id="openContact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- COL 4 -->
+    <div class="footer-col">
+      <h4>SUIVEZ-NOUS</h4>
+
+      <div class="socials">
+        <div class="social-icon">
+          <a href="https://x.com/?lang=fr" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M24 4.56a9.83 9.83 0 0 1-2.83.78 4.93 4.93 0 0 0 2.16-2.72c-.95.56-2 .96-3.12 1.19a4.92 4.92 0 0 0-8.38 4.49A13.96 13.96 0 0 1 1.64 3.16a4.92 4.92 0 0 0 1.52 6.57A4.9 4.9 0 0 1 .96 9.1v.06a4.92 4.92 0 0 0 3.95 4.82 4.94 4.94 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.94 13.94 0 0 0 7.56 2.21c9.06 0 14.01-7.51 14.01-14.02 0-.21 0-.42-.02-.63A10 10 0 0 0 24 4.56z" fill="#1a8fe3"/></svg>
+          </a>
+        </div>
+        <div class="social-icon">
+          <a href="https://www.facebook.com/yaakartakkusuxaliwalo" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M21.95 5.005l-3.306-.004c-3.206 0-5.277 2.124-5.277 5.415v2.495H10.05v4.515h3.317l-.004 9.575h4.641l.004-9.575h3.806l-.003-4.514h-3.803v-2.117c0-1.018.268-1.526 1.732-1.526l2.199-.005.006-4.259z" fill="#1a8fe3"/></svg>
+          </a>
+        </div>
+        <div class="social-icon">
+          <a href="https://www.youtube.com/watch?v=uHSuhs0d7oE" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M21.8 8s-.2-1.4-.8-2c-.77-.8-1.63-.81-2.02-.85C16.2 5 12 5 12 5s-4.2 0-6.98.15c-.4.04-1.25.05-2.02.85-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.77.8 1.78.77 2.23.85C6.8 18.97 12 19 12 19s4.2 0 6.98-.18c.4-.04 1.25-.05 2.02-.85.6-.6.8-2 .8-2S22 14.3 22 12.7v-1.5C22 9.6 21.8 8 21.8 8zM9.75 15.02V8.98l6.5 3.04-6.5 3z" fill="#1a8fe3"/></svg>
+          </a>
+        </div>
+        <div class="social-icon">
+          <a href="https://www.instagram.com/?hl=fr" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="#1a8fe3" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="#1a8fe3" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="#1a8fe3"/></svg>
+          </a>
+        </div>
+        <div class="social-icon">
+          <a href="https://web.telegram.org/a/" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M9.5 16.5l-.4 4.5c.6 0 .9-.3 1.3-.6l3.1-3 6.5 4.7c1.2.7 2 .3 2.3-1.1l4.2-19.6c.4-1.8-.6-2.5-1.7-2.1L1.3 9.5c-1.7.7-1.7 1.6-.3 2l5.6 1.8L19.8 5.8c.6-.4 1.1-.2.7.2"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-newsletter">
+        <div class="newsletter-text">
+          <h3>Newsletter</h3>
+        </div>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Votre email" required>
+          <button type="submit">OK</button>
+        </form>
+      </div>
 
     </div>
 
   </div>
 
-</section>
+  <div class="sign">
+    © Yaakaar 2026
+    <div class="signature">Dev by <span>SKadiar Design</span></div>
+  </div>
+
+</footer>
+
+<!-- FLOATING CONTACT WIDGET -->
+<div class="floating-contact-widget">
+  <button class="floating-main" id="toggleContact">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div class="floating-menu" id="contactMenu">
+    <a href="https://wa.me/221XXXXXXXXX" target="_blank" class="menu-item whatsapp">💬 WhatsApp</a>
+    <a href="#" class="menu-item email" id="openContact">✉ Email</a>
+    <a href="tel:+221XXXXXXXXX" class="menu-item call">📞 Appel</a>
+  </div>
+</div>
+
+<!-- MODAL CONTACT -->
+<div class="contact-modal" id="contactModal">
+  <div class="contact-box">
+    <span class="close-modal" id="closeModal">&times;</span>
+    <h2>Contactez-nous</h2>
+    <form>
+      <input type="text" placeholder="Nom complet" required>
+      <input type="email" placeholder="Email" required>
+      <input type="text" placeholder="Sujet">
+      <textarea placeholder="Votre message..." rows="5" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+</div>
+
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const map = L.map('map').setView([14.7645, -17.3660], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+    L.marker([14.7645, -17.3660])
+      .addTo(map)
+      .bindPopup("Notre siège – Walo, Sénégal")
+      .openPopup();
+  });
+</script>
+<script>
+const burger = document.getElementById('burger');
+const nav = document.querySelector('.nav-links');
+burger.addEventListener('click', () => { nav.classList.toggle('active'); });
+</script>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('active'); } });
+});
+reveals.forEach(el => observer.observe(el));
+</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  const map = L.map('map').setView([16.51038697797572, -15.504262749585891], 10);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap' }).addTo(map);
+  const icon = L.icon({ iconUrl: 'images/marker.png', iconSize: [40, 40] });
+  L.marker([16.51038697797572, -15.504262749585891], { icon }).addTo(map).bindPopup("Notre siège - Walo").openPopup();
+  map.zoomControl.setPosition('bottomright');
+  map.scrollWheelZoom.disable();
+  setTimeout(() => { map.invalidateSize(); }, 200);
+});
+</script>
 
-  const map = L.map('map').setView([14.7645, -17.3660], 13);
+<script>
+const modal = document.getElementById("contactModal");
+const openBtn = document.getElementById("openContact");
+const closeBtn = document.getElementById("closeModal");
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap'
-  }).addTo(map);
+function openModal(e) {
+  e.preventDefault();
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+function closeModal() {
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
+}
 
-  L.marker([14.7645, -17.3660])
-    .addTo(map)
-    .bindPopup("Notre siège - Dakar")
-    .openPopup();
+openBtn.addEventListener("click", openModal);
+closeBtn.addEventListener("click", closeModal);
+window.addEventListener("click", function(e) { if (e.target === modal) closeModal(); });
+</script>
 
+<script>
+const widget = document.querySelector(".floating-contact-widget");
+const toggle = document.getElementById("toggleContact");
+toggle.addEventListener("click", () => { widget.classList.toggle("active"); });
+</script>
+
+<script>
+const contactBtn = document.getElementById("contactBtn");
+contactBtn.addEventListener("click", () => {
+  document.getElementById("contactModal").style.display = "flex";
+  document.body.style.overflow = "hidden";
+});
+</script>
+
+<script>
+const video = document.getElementById("myVideo");
+const overlay = document.getElementById("videoOverlay");
+const playPause = document.getElementById("playPause");
+const progress = document.getElementById("progress");
+const muteBtn = document.getElementById("muteBtn");
+const fullBtn = document.getElementById("fullBtn");
+
+// La vidéo ne se relance JAMAIS automatiquement — uniquement via le bouton play
+let userPaused = true;
+
+function togglePlay() {
+  if (video.paused) {
+    video.play();
+    overlay.style.display = "none";
+    userPaused = false;
+  } else {
+    video.pause();
+    overlay.style.display = "flex";
+    userPaused = true;
+  }
+}
+
+overlay.addEventListener("click", togglePlay);
+playPause.addEventListener("click", togglePlay);
+
+video.addEventListener("timeupdate", () => {
+  progress.value = (video.currentTime / video.duration) * 100;
+});
+progress.addEventListener("input", () => {
+  video.currentTime = (progress.value / 100) * video.duration;
+});
+muteBtn.addEventListener("click", () => {
+  video.muted = !video.muted;
+  muteBtn.textContent = video.muted ? "🔇" : "🔊";
+});
+fullBtn.addEventListener("click", () => {
+  if (!document.fullscreenElement) { video.requestFullscreen(); }
+  else { document.exitFullscreen(); }
+});
+
+// Pause automatique quand la vidéo sort du viewport, mais ne relance jamais automatiquement
+const videoObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting && !video.paused) {
+      video.pause();
+      overlay.style.display = "flex";
+      // On ne touche pas à userPaused : l'utilisateur devra cliquer play au retour
+    }
+  });
+}, { threshold: 0.4 });
+videoObserver.observe(video);
+
+// Pause automatique si l'onglet/la fenêtre devient invisible
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden && !video.paused) {
+    video.pause();
+    overlay.style.display = "flex";
+  }
+});
+</script>
+
+<script>
+/* ── SLIDER CARTE ── */
+const TOTAL = 13;
+let cardIndex = 0;
+const cardSlider = document.getElementById('cardSlider');
+const cardDots = document.getElementById('cardDots').children;
+
+function goCard(i) {
+  cardIndex = (i + TOTAL) % TOTAL;
+  cardSlider.style.transform = `translateX(-${cardIndex * 100}%)`;
+  Array.from(cardDots).forEach((d, j) => d.classList.toggle('active', j === cardIndex));
+}
+
+document.getElementById('cardPrev').addEventListener('click', e => { e.stopPropagation(); goCard(cardIndex - 1); });
+document.getElementById('cardNext').addEventListener('click', e => { e.stopPropagation(); goCard(cardIndex + 1); });
+Array.from(cardDots).forEach((d, i) => d.addEventListener('click', e => { e.stopPropagation(); goCard(i); }));
+
+/* Swipe tactile carte */
+let touchStartX = 0;
+cardSlider.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+cardSlider.addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) goCard(diff > 0 ? cardIndex + 1 : cardIndex - 1);
+});
+
+/* ── LIGHTBOX ── */
+let lbIndex = 0;
+const lightbox = document.getElementById('lightbox');
+const lbTrack = document.getElementById('lbTrack');
+const lbCounter = document.getElementById('lbCounter');
+const lbDots = document.getElementById('lbDots').children;
+
+function goLb(i) {
+  lbIndex = (i + TOTAL) % TOTAL;
+  lbTrack.style.transform = `translateX(-${lbIndex * 100}%)`;
+  lbCounter.textContent = `${lbIndex + 1} / ${TOTAL}`;
+  Array.from(lbDots).forEach((d, j) => d.classList.toggle('active', j === lbIndex));
+}
+
+document.getElementById('cardMedia').addEventListener('click', () => { goLb(cardIndex); lightbox.classList.add('open'); });
+document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); goLb(lbIndex - 1); });
+document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); goLb(lbIndex + 1); });
+document.getElementById('lbClose').addEventListener('click', () => { lightbox.classList.remove('open'); document.body.style.overflow = 'auto'; });
+lightbox.addEventListener('click', e => { if (e.target === lightbox) { lightbox.classList.remove('open'); document.body.style.overflow = 'auto'; } });
+Array.from(lbDots).forEach((d, i) => d.addEventListener('click', () => goLb(i)));
+
+/* Swipe tactile lightbox */
+let lbTouchX = 0;
+lbTrack.addEventListener('touchstart', e => { lbTouchX = e.touches[0].clientX; });
+lbTrack.addEventListener('touchend', e => {
+  const diff = lbTouchX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) goLb(diff > 0 ? lbIndex + 1 : lbIndex - 1);
+});
+
+/* Clavier */
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'ArrowRight') goLb(lbIndex + 1);
+  if (e.key === 'ArrowLeft')  goLb(lbIndex - 1);
+  if (e.key === 'Escape')     { lightbox.classList.remove('open'); document.body.style.overflow = 'auto'; }
+});
+
+/* Bloquer le scroll quand lightbox ouverte */
+document.getElementById('cardMedia').addEventListener('click', () => { document.body.style.overflow = 'hidden'; });
+</script>
+
+<script>
+/* ── SLIDER CARTE 2 ── */
+const TOTAL2 = 6;
+let cardIndex2 = 0;
+const cardSlider2 = document.getElementById('cardSlider2');
+const cardDots2 = document.getElementById('cardDots2').children;
+
+function goCard2(i) {
+  cardIndex2 = (i + TOTAL2) % TOTAL2;
+  cardSlider2.style.transform = `translateX(-${cardIndex2 * 100}%)`;
+  Array.from(cardDots2).forEach((d, j) => d.classList.toggle('active', j === cardIndex2));
+}
+
+document.getElementById('cardPrev2').addEventListener('click', e => { e.stopPropagation(); goCard2(cardIndex2 - 1); });
+document.getElementById('cardNext2').addEventListener('click', e => { e.stopPropagation(); goCard2(cardIndex2 + 1); });
+Array.from(cardDots2).forEach((d, i) => d.addEventListener('click', e => { e.stopPropagation(); goCard2(i); }));
+
+/* Swipe tactile carte 2 */
+let touchStartX2 = 0;
+cardSlider2.addEventListener('touchstart', e => { touchStartX2 = e.touches[0].clientX; });
+cardSlider2.addEventListener('touchend', e => {
+  const diff = touchStartX2 - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) goCard2(diff > 0 ? cardIndex2 + 1 : cardIndex2 - 1);
+});
+
+/* ── LIGHTBOX 2 ── */
+let lbIndex2 = 0;
+const lightbox2 = document.getElementById('lightbox2');
+const lbTrack2 = document.getElementById('lbTrack2');
+const lbCounter2 = document.getElementById('lbCounter2');
+const lbDots2 = document.getElementById('lbDots2').children;
+
+function goLb2(i) {
+  lbIndex2 = (i + TOTAL2) % TOTAL2;
+  lbTrack2.style.transform = `translateX(-${lbIndex2 * 100}%)`;
+  lbCounter2.textContent = `${lbIndex2 + 1} / ${TOTAL2}`;
+  Array.from(lbDots2).forEach((d, j) => d.classList.toggle('active', j === lbIndex2));
+}
+
+document.getElementById('cardMedia2').addEventListener('click', () => { goLb2(cardIndex2); lightbox2.classList.add('open'); document.body.style.overflow = 'hidden'; });
+document.getElementById('lbPrev2').addEventListener('click', e => { e.stopPropagation(); goLb2(lbIndex2 - 1); });
+document.getElementById('lbNext2').addEventListener('click', e => { e.stopPropagation(); goLb2(lbIndex2 + 1); });
+document.getElementById('lbClose2').addEventListener('click', () => { lightbox2.classList.remove('open'); document.body.style.overflow = 'auto'; });
+lightbox2.addEventListener('click', e => { if (e.target === lightbox2) { lightbox2.classList.remove('open'); document.body.style.overflow = 'auto'; } });
+Array.from(lbDots2).forEach((d, i) => d.addEventListener('click', () => goLb2(i)));
+
+/* Swipe tactile lightbox 2 */
+let lbTouchX2 = 0;
+lbTrack2.addEventListener('touchstart', e => { lbTouchX2 = e.touches[0].clientX; });
+lbTrack2.addEventListener('touchend', e => {
+  const diff = lbTouchX2 - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) goLb2(diff > 0 ? lbIndex2 + 1 : lbIndex2 - 1);
+});
+
+/* Clavier lightbox 2 */
+document.addEventListener('keydown', e => {
+  if (!lightbox2.classList.contains('open')) return;
+  if (e.key === 'ArrowRight') goLb2(lbIndex2 + 1);
+  if (e.key === 'ArrowLeft')  goLb2(lbIndex2 - 1);
+  if (e.key === 'Escape')     { lightbox2.classList.remove('open'); document.body.style.overflow = 'auto'; }
+});
+</script>
+
+<script>
+const video2 = document.getElementById("myVideo2");
+const overlay2 = document.getElementById("videoOverlay2");
+const playPause2 = document.getElementById("playPause2");
+const progress2 = document.getElementById("progress2");
+const muteBtn2 = document.getElementById("muteBtn2");
+const fullBtn2 = document.getElementById("fullBtn2");
+
+let userPaused2 = true;
+
+function togglePlay2() {
+  if (video2.paused) {
+    video2.play();
+    overlay2.style.display = "none";
+    userPaused2 = false;
+  } else {
+    video2.pause();
+    overlay2.style.display = "flex";
+    userPaused2 = true;
+  }
+}
+
+overlay2.addEventListener("click", togglePlay2);
+playPause2.addEventListener("click", togglePlay2);
+
+video2.addEventListener("timeupdate", () => {
+  progress2.value = (video2.currentTime / video2.duration) * 100;
+});
+progress2.addEventListener("input", () => {
+  video2.currentTime = (progress2.value / 100) * video2.duration;
+});
+muteBtn2.addEventListener("click", () => {
+  video2.muted = !video2.muted;
+  muteBtn2.textContent = video2.muted ? "🔇" : "🔊";
+});
+fullBtn2.addEventListener("click", () => {
+  if (!document.fullscreenElement) { video2.requestFullscreen(); }
+  else { document.exitFullscreen(); }
+});
+
+const videoObserver2 = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting && !video2.paused) {
+      video2.pause();
+      overlay2.style.display = "flex";
+    }
+  });
+}, { threshold: 0.4 });
+videoObserver2.observe(video2);
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden && !video2.paused) {
+    video2.pause();
+    overlay2.style.display = "flex";
+  }
 });
 </script>
 
