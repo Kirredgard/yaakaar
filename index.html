@@ -633,7 +633,7 @@ fullBtn.addEventListener("click", () => {
 });
 
 // 👁 AUTOPLAY QUAND VISIBLE
-const observer = new IntersectionObserver(entries => {
+const videoObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       video.play();
@@ -644,7 +644,7 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.6 });
 
-observer.observe(video);
+videoObserver.observe(video);
 </script>
 </body>
 
