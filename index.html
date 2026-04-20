@@ -185,15 +185,30 @@
     <!-- CARD VIDEO -->
     <div class="news-card large">
 
-  <div class="news-media video">
-    <iframe 
-  src="https://www.youtube.com/embed/wlWJAA5fUF0?autoplay=1&mute=1&rel=0"
-  title="Vidéo YouTube"
-  frameborder="0"
-  allow="autoplay; encrypted-media; picture-in-picture"
-  allowfullscreen>
-</iframe>
+  <div class="news-media video" id="videoCard">
+
+  <video class="video-player" id="myVideo" playsinline>
+    <source src="videos/fedac26.mp4" type="video/mp4">
+  </video>
+
+  <!-- Overlay play -->
+  <div class="video-overlay" id="videoOverlay">
+    <div class="play-button">▶</div>
   </div>
+  <!-- CONTROLS -->
+  <div class="video-controls" id="controls">
+
+    <button id="playPause">⏯</button>
+
+    <input type="range" id="progress" value="0" min="0" max="100">
+
+    <button id="muteBtn">🔊</button>
+
+    <button id="fullBtn">⛶</button>
+
+  </div>
+
+</div>
 
   <div class="news-content">
     <div class="news-meta">
@@ -569,6 +584,67 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 });
+</script>
+<script>
+const video = document.getElementById("myVideo");
+const overlay = document.getElementById("videoOverlay");
+const playPause = document.getElementById("playPause");
+const progress = document.getElementById("progress");
+const muteBtn = document.getElementById("muteBtn");
+const fullBtn = document.getElementById("fullBtn");
+
+// ▶ PLAY / PAUSE
+function togglePlay() {
+  if (video.paused) {
+    video.play();
+    overlay.style.display = "none";
+  } else {
+    video.pause();
+    overlay.style.display = "flex";
+  }
+}
+
+
+overlay.addEventListener("click", togglePlay);
+playPause.addEventListener("click", togglePlay);
+
+// ⏱ PROGRESSION
+video.addEventListener("timeupdate", () => {
+  progress.value = (video.currentTime / video.duration) * 100;
+});
+
+progress.addEventListener("input", () => {
+  video.currentTime = (progress.value / 100) * video.duration;
+});
+
+// 🔊 MUTE
+muteBtn.addEventListener("click", () => {
+  video.muted = !video.muted;
+  muteBtn.textContent = video.muted ? "🔇" : "🔊";
+});
+
+// ⛶ FULLSCREEN
+fullBtn.addEventListener("click", () => {
+  if (!document.fullscreenElement) {
+    video.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+});
+
+// 👁 AUTOPLAY QUAND VISIBLE
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      video.play();
+      overlay.style.display = "none";
+    } else {
+      video.pause();
+    }
+  });
+}, { threshold: 0.6 });
+
+observer.observe(video);
 </script>
 </body>
 
