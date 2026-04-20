@@ -186,7 +186,7 @@
 <section class="news reveal">
 
   <div class="news-header">
-    <span class="news-label">ACTUALITÉS</span>
+    <a href="test.html" class="news-label">ACTUALITÉS</a>
   </div>
 
   <div class="news-grid">
@@ -215,7 +215,7 @@
 
       </div>
 
-      <div class="news-content">
+      <a href="test.html" class="news-content news-content-link">
         <div class="news-meta">
           <span>18.04.2026</span>
           <span class="tag">FEDAG DAGANA</span>
@@ -223,7 +223,8 @@
         </div>
         <h3>Première édition du FEDAG 2026</h3>
         <p>Une feuille de route pour relancer l'économie locale</p>
-      </div>
+        <span class="news-read-more">Lire l'article →</span>
+      </a>
 
     </div>
 
@@ -264,7 +265,7 @@
         </div>
         <span class="zoom-hint">appuyer pour agrandir</span>
       </div>
-      <div class="news-content">
+      <a href="test.html" class="news-content news-content-link">
         <div class="news-meta">
           <span>20.04.2026</span>
           <span class="tag light">SANTÉ</span>
@@ -272,40 +273,89 @@
         </div>
         <h3>Consultations ophtalmologiques gratuites</h3>
         <p>Santé visuelle — Le mouvement Yaakaar Takku Suxali Walo au chevet des populations du Walo.</p>
-      </div>
+        <span class="news-read-more">Lire l'article →</span>
+      </a>
     </div>
 
-    <!-- CARD TEXTE -->
-    <div class="news-card text">
-      <div class="news-content">
+    <!-- CARD VIDEO 2 -->
+    <div class="news-card large">
+
+      <div class="news-media video" id="videoCard2">
+
+        <video class="video-player" id="myVideo2" playsinline>
+          <source src="videos/emission.mp4" type="video/mp4">
+        </video>
+
+        <!-- Overlay play -->
+        <div class="video-overlay" id="videoOverlay2">
+          <div class="play-button">▶</div>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="video-controls" id="controls2">
+          <button id="playPause2">⏯</button>
+          <input type="range" id="progress2" value="0" min="0" max="100">
+          <button id="muteBtn2">🔊</button>
+          <button id="fullBtn2">⛶</button>
+        </div>
+
+      </div>
+
+      <a href="test.html" class="news-content news-content-link">
         <div class="news-meta">
           <span>15.04.2026</span>
-          <span class="tag">CONSULTATION</span>
+          <span class="tag">POLITIQUE</span>
+          <span class="tag light">VIDÉO</span>
         </div>
-        <h3>Consultation des adhérents – vos avis entendus</h3>
-        <p>Dans le cadre de la consultation menée auprès des citoyens…</p>
-        <div class="news-author">YA AKAAR TAKKU</div>
-      </div>
+        <h3>Débat politique</h3>
+        <p>Invité: Mouhamadou LÔ (Coordonnateur national mouvement Yaakaar Taku Suqali Walo)</p>
+        <span class="news-read-more">Lire l'article →</span>
+      </a>
+
     </div>
 
-    <!-- CARD TEXTE 2 -->
-    <div class="news-card text">
-      <div class="news-content">
-        <div class="news-meta">
-          <span>08.04.2026</span>
-          <span class="tag">ACTUALITÉS</span>
+    <!-- CARD IMAGE AVEC SLIDER + LIGHTBOX 2 -->
+    <div class="news-card">
+      <div class="news-media" id="cardMedia2">
+        <div class="slider" id="cardSlider2">
+           <img src="images/invitation/P1.jpg" alt="Photo 1">
+          <img src="images/invitation/P2.jpg" alt="Photo 2">
+          <img src="images/invitation/P3.jpg" alt="Photo 3">
+          <img src="images/invitation/P4.jpg" alt="Photo 4">
+          <img src="images/invitation/P5.jpg" alt="Photo 5">
+          <img src="images/invitation/P6.jpg" alt="Photo 6">
         </div>
-        <h3>Guide des élections internes</h3>
-        <p>Guide des opérations électorales – Juin 2026…</p>
-        <div class="news-author">YA AKAAR TAKKU</div>
+        <button class="arrow prev" id="cardPrev2">&#8249;</button>
+        <button class="arrow next" id="cardNext2">&#8250;</button>
+        <div class="dots" id="cardDots2">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          
+        </div>
+        <span class="zoom-hint">appuyer pour agrandir</span>
       </div>
+      <a href="test.html" class="news-content news-content-link">
+        <div class="news-meta">
+          <span>15.03.2026</span>
+          <span class="tag">ECHANGES</span>
+          <span class="tag light">IMAGES</span>
+        </div>
+        <h3>Rencontre de Sonko avec la coalition APTE</h3>
+        <p>Dans une dynamique de renforcement de l’unité, le coordonnateur national Mouhamadou Lô a répondu à l'invitation du président Ousmane Sonko lors du Ndogou de la coalition APTE.</p>
+        <span class="news-read-more">Lire l'article →</span>
+      </a>
     </div>
 
   </div>
 
-</section>
+  <div class="news-more">
+    <a href="test.html" class="btn-more-news">Voir plus d'actualités</a>
+  </div>
 
-<!-- CTA -->
+</section>
 <section class="cta-section reveal">
   <div class="cta-container">
 
@@ -315,7 +365,7 @@
         REJOIGNEZ VOTRE<br>
         <span>MOUVEMENT</span>
       </h2>
-      <a href="#" class="cta-btn-red">En savoir plus</a>
+      <a href="adhesion.html" class="cta-btn-red">En savoir plus</a>
     </div>
 
     <div class="cta-right">
@@ -488,6 +538,34 @@
   </div>
 </div>
 
+<!-- LIGHTBOX 2 -->
+<div class="lightbox" id="lightbox2">
+  <button class="lb-close" id="lbClose2">&times;</button>
+  <div class="lb-inner">
+    <button class="lb-arrow prev" id="lbPrev2">&#8249;</button>
+    <div class="lb-slider">
+      <div class="lb-slider-track" id="lbTrack2">
+         <div class="lb-slide"><img src="images/invitation/P1.jpg" alt="Photo 1"></div>
+        <div class="lb-slide"><img src="images/invitation/P2.jpg" alt="Photo 2"></div>
+        <div class="lb-slide"><img src="images/invitation/P3.jpg" alt="Photo 3"></div>
+        <div class="lb-slide"><img src="images/invitation/P4.jpg" alt="Photo 4"></div>
+        <div class="lb-slide"><img src="images/invitation/P5.jpg" alt="Photo 5"></div>
+        <div class="lb-slide"><img src="images/invitation/P6.jpg" alt="Photo 6"></div>
+      </div>
+    </div>
+    <button class="lb-arrow next" id="lbNext2">&#8250;</button>
+  </div>
+  <div class="lb-counter" id="lbCounter2">1 / 10</div>
+  <div class="lb-dots" id="lbDots2">
+    <div class="lb-dot active"></div>
+    <div class="lb-dot"></div>
+    <div class="lb-dot"></div>
+    <div class="lb-dot"></div>
+    <div class="lb-dot"></div>
+    <div class="lb-dot"></div>
+  </div>
+</div>
+
 <!-- SCRIPTS -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
@@ -559,9 +637,19 @@ const progress = document.getElementById("progress");
 const muteBtn = document.getElementById("muteBtn");
 const fullBtn = document.getElementById("fullBtn");
 
+// La vidéo ne se relance JAMAIS automatiquement — uniquement via le bouton play
+let userPaused = true;
+
 function togglePlay() {
-  if (video.paused) { video.play(); overlay.style.display = "none"; }
-  else { video.pause(); overlay.style.display = "flex"; }
+  if (video.paused) {
+    video.play();
+    overlay.style.display = "none";
+    userPaused = false;
+  } else {
+    video.pause();
+    overlay.style.display = "flex";
+    userPaused = true;
+  }
 }
 
 overlay.addEventListener("click", togglePlay);
@@ -582,13 +670,25 @@ fullBtn.addEventListener("click", () => {
   else { document.exitFullscreen(); }
 });
 
+// Pause automatique quand la vidéo sort du viewport, mais ne relance jamais automatiquement
 const videoObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) { video.play(); overlay.style.display = "none"; }
-    else { video.pause(); }
+    if (!entry.isIntersecting && !video.paused) {
+      video.pause();
+      overlay.style.display = "flex";
+      // On ne touche pas à userPaused : l'utilisateur devra cliquer play au retour
+    }
   });
-}, { threshold: 0.6 });
+}, { threshold: 0.4 });
 videoObserver.observe(video);
+
+// Pause automatique si l'onglet/la fenêtre devient invisible
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden && !video.paused) {
+    video.pause();
+    overlay.style.display = "flex";
+  }
+});
 </script>
 
 <script>
@@ -655,6 +755,127 @@ document.addEventListener('keydown', e => {
 
 /* Bloquer le scroll quand lightbox ouverte */
 document.getElementById('cardMedia').addEventListener('click', () => { document.body.style.overflow = 'hidden'; });
+</script>
+
+<script>
+/* ── SLIDER CARTE 2 ── */
+const TOTAL2 = 6;
+let cardIndex2 = 0;
+const cardSlider2 = document.getElementById('cardSlider2');
+const cardDots2 = document.getElementById('cardDots2').children;
+
+function goCard2(i) {
+  cardIndex2 = (i + TOTAL2) % TOTAL2;
+  cardSlider2.style.transform = `translateX(-${cardIndex2 * 100}%)`;
+  Array.from(cardDots2).forEach((d, j) => d.classList.toggle('active', j === cardIndex2));
+}
+
+document.getElementById('cardPrev2').addEventListener('click', e => { e.stopPropagation(); goCard2(cardIndex2 - 1); });
+document.getElementById('cardNext2').addEventListener('click', e => { e.stopPropagation(); goCard2(cardIndex2 + 1); });
+Array.from(cardDots2).forEach((d, i) => d.addEventListener('click', e => { e.stopPropagation(); goCard2(i); }));
+
+/* Swipe tactile carte 2 */
+let touchStartX2 = 0;
+cardSlider2.addEventListener('touchstart', e => { touchStartX2 = e.touches[0].clientX; });
+cardSlider2.addEventListener('touchend', e => {
+  const diff = touchStartX2 - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) goCard2(diff > 0 ? cardIndex2 + 1 : cardIndex2 - 1);
+});
+
+/* ── LIGHTBOX 2 ── */
+let lbIndex2 = 0;
+const lightbox2 = document.getElementById('lightbox2');
+const lbTrack2 = document.getElementById('lbTrack2');
+const lbCounter2 = document.getElementById('lbCounter2');
+const lbDots2 = document.getElementById('lbDots2').children;
+
+function goLb2(i) {
+  lbIndex2 = (i + TOTAL2) % TOTAL2;
+  lbTrack2.style.transform = `translateX(-${lbIndex2 * 100}%)`;
+  lbCounter2.textContent = `${lbIndex2 + 1} / ${TOTAL2}`;
+  Array.from(lbDots2).forEach((d, j) => d.classList.toggle('active', j === lbIndex2));
+}
+
+document.getElementById('cardMedia2').addEventListener('click', () => { goLb2(cardIndex2); lightbox2.classList.add('open'); document.body.style.overflow = 'hidden'; });
+document.getElementById('lbPrev2').addEventListener('click', e => { e.stopPropagation(); goLb2(lbIndex2 - 1); });
+document.getElementById('lbNext2').addEventListener('click', e => { e.stopPropagation(); goLb2(lbIndex2 + 1); });
+document.getElementById('lbClose2').addEventListener('click', () => { lightbox2.classList.remove('open'); document.body.style.overflow = 'auto'; });
+lightbox2.addEventListener('click', e => { if (e.target === lightbox2) { lightbox2.classList.remove('open'); document.body.style.overflow = 'auto'; } });
+Array.from(lbDots2).forEach((d, i) => d.addEventListener('click', () => goLb2(i)));
+
+/* Swipe tactile lightbox 2 */
+let lbTouchX2 = 0;
+lbTrack2.addEventListener('touchstart', e => { lbTouchX2 = e.touches[0].clientX; });
+lbTrack2.addEventListener('touchend', e => {
+  const diff = lbTouchX2 - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) goLb2(diff > 0 ? lbIndex2 + 1 : lbIndex2 - 1);
+});
+
+/* Clavier lightbox 2 */
+document.addEventListener('keydown', e => {
+  if (!lightbox2.classList.contains('open')) return;
+  if (e.key === 'ArrowRight') goLb2(lbIndex2 + 1);
+  if (e.key === 'ArrowLeft')  goLb2(lbIndex2 - 1);
+  if (e.key === 'Escape')     { lightbox2.classList.remove('open'); document.body.style.overflow = 'auto'; }
+});
+</script>
+
+<script>
+const video2 = document.getElementById("myVideo2");
+const overlay2 = document.getElementById("videoOverlay2");
+const playPause2 = document.getElementById("playPause2");
+const progress2 = document.getElementById("progress2");
+const muteBtn2 = document.getElementById("muteBtn2");
+const fullBtn2 = document.getElementById("fullBtn2");
+
+let userPaused2 = true;
+
+function togglePlay2() {
+  if (video2.paused) {
+    video2.play();
+    overlay2.style.display = "none";
+    userPaused2 = false;
+  } else {
+    video2.pause();
+    overlay2.style.display = "flex";
+    userPaused2 = true;
+  }
+}
+
+overlay2.addEventListener("click", togglePlay2);
+playPause2.addEventListener("click", togglePlay2);
+
+video2.addEventListener("timeupdate", () => {
+  progress2.value = (video2.currentTime / video2.duration) * 100;
+});
+progress2.addEventListener("input", () => {
+  video2.currentTime = (progress2.value / 100) * video2.duration;
+});
+muteBtn2.addEventListener("click", () => {
+  video2.muted = !video2.muted;
+  muteBtn2.textContent = video2.muted ? "🔇" : "🔊";
+});
+fullBtn2.addEventListener("click", () => {
+  if (!document.fullscreenElement) { video2.requestFullscreen(); }
+  else { document.exitFullscreen(); }
+});
+
+const videoObserver2 = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting && !video2.paused) {
+      video2.pause();
+      overlay2.style.display = "flex";
+    }
+  });
+}, { threshold: 0.4 });
+videoObserver2.observe(video2);
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden && !video2.paused) {
+    video2.pause();
+    overlay2.style.display = "flex";
+  }
+});
 </script>
 
 </body>
