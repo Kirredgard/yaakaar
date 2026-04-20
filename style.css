@@ -501,13 +501,91 @@ h2 {
   font-size: 24px;
 }
 /* VIDEO RESPONSIVE */
+/* CONTAINER IDENTIQUE À TON DESIGN */
 .news-media.video {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* ratio 16:9 */
+  padding-top: 56.25%;
   overflow: hidden;
+  background: #000;
 }
 
+/* VIDEO */
+.video-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* OVERLAY */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.25);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* HOVER */
+.video-overlay:hover {
+  background: rgba(0,0,0,0.35);
+}
+
+/* PLAY BUTTON */
+.play-button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  color: #1a8fe3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.video-overlay:hover .play-button {
+  transform: scale(1.1);
+}
+.video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.news-media.video:hover .video-controls {
+  opacity: 1;
+}
+
+.video-controls button {
+  background: rgba(255,255,255,0.9);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#progress {
+  flex: 1;
+  cursor: pointer;
+}
 .news-media.video iframe {
   position: absolute;
   top: 0;
