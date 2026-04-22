@@ -10,7 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
-
+/* ── FORCE AUTOPLAY iOS ── */
+const heroVid = document.getElementById('heroVideo');
+if (heroVid) {
+  heroVid.play().catch(() => {
+    // Si autoplay bloqué, on rejoue au premier touch
+    document.addEventListener('touchstart', () => heroVid.play(), { once: true });
+  });
+}
   /* ── BURGER MENU ── */
   const burger = document.getElementById('burger');
   const nav    = document.getElementById('nav');
