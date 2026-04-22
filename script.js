@@ -1,6 +1,6 @@
 /* ══════════════════════════════════════════════
-   YAAKAAR — script.js v3
-   Corrections : autoplay iOS, nav z-index, burger
+   YAAKAAR — script.js v4
+   Fix burger iOS Safari : scroll-lock sans overflow:hidden sur body
 ══════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,22 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── FORCE AUTOPLAY VIDÉO HERO (iOS Safari) ── */
   const heroVid = document.getElementById('heroVideo');
   if (heroVid) {
-    // Attributs nécessaires pour iOS
     heroVid.muted = true;
     heroVid.playsInline = true;
 
-    const tryPlay = () => {
-      heroVid.play().catch(() => {});
-    };
-
-    // Tenter immédiatement
+    const tryPlay = () => { heroVid.play().catch(() => {}); };
     tryPlay();
-
-    // Si bloqué, rejouer au premier geste utilisateur
     document.addEventListener('touchstart', tryPlay, { once: true });
     document.addEventListener('click', tryPlay, { once: true });
 
-    // Relancer si la vidéo se fige (visible mais stoppée)
     const heroObserver = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting && heroVid.paused) tryPlay();
@@ -38,23 +30,51 @@ document.addEventListener('DOMContentLoaded', () => {
     heroObserver.observe(heroVid);
   }
 
-  /* ── BURGER MENU ── */
+  /* ══════════════════════════════════════════════
+     BURGER MENU — Fix iOS Safari
+     Problème : overflow:hidden sur <body> fait sauter
+     les éléments fixed et recalcule le viewport sur iOS.
+     Solution : on bloque le scroll via un wrapper <main>
+     ou via position:fixed sur le body + sauvegarde du scrollY.
+  ══════════════════════════════════════════════ */
   const burger = document.getElementById('burger');
   const nav    = document.getElementById('nav');
+  let scrollY  = 0;
+
+  function openNav() {
+    scrollY = window.scrollY;                      // 1. sauvegarder position
+    document.body.style.position   = 'fixed';      // 2. fixer le body
+    document.body.style.top        = `-${scrollY}px`; // 3. simuler la position
+    document.body.style.left       = '0';
+    document.body.style.right      = '0';
+    document.body.style.overflow   = 'hidden';
+    burger.classList.add('open');
+    nav.classList.add('open');
+  }
+
+  function closeNav() {
+    document.body.style.position   = '';           // 1. relâcher le body
+    document.body.style.top        = '';
+    document.body.style.left       = '';
+    document.body.style.right      = '';
+    document.body.style.overflow   = '';
+    window.scrollTo(0, scrollY);                   // 2. restaurer la position
+    burger.classList.remove('open');
+    nav.classList.remove('open');
+  }
 
   burger?.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    nav.classList.toggle('open');
-    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    nav.classList.contains('open') ? closeNav() : openNav();
   });
 
-  // Fermer le nav si on clique sur un lien
+  // Fermer si on clique sur un lien
   nav?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      burger.classList.remove('open');
-      nav.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', () => closeNav());
+  });
+
+  // Fermer si on appuie sur Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && nav?.classList.contains('open')) closeNav();
   });
 
   /* ── REVEAL AU SCROLL ── */
@@ -107,12 +127,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openModal(e) {
     e?.preventDefault();
+    if (!modal) return;
     modal.classList.add('open');
+    scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top      = `-${scrollY}px`;
+    document.body.style.left     = '0';
+    document.body.style.right    = '0';
     document.body.style.overflow = 'hidden';
   }
   function closeModal() {
+    if (!modal) return;
     modal.classList.remove('open');
+    document.body.style.position = '';
+    document.body.style.top      = '';
+    document.body.style.left     = '';
+    document.body.style.right    = '';
     document.body.style.overflow = '';
+    window.scrollTo(0, scrollY);
   }
 
   document.getElementById('contactBtn')?.addEventListener('click', openModal);
@@ -121,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
   closeBtn?.addEventListener('click', closeModal);
   modal?.addEventListener('click', e => { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    if (e.key === 'Escape' && modal?.classList.contains('open')) closeModal();
   });
 
   /* ── FLOATING WIDGET ── */
@@ -180,7 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
       else document.exitFullscreen();
     });
 
-    // Pause auto quand hors viewport
     const vObs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting && !vid.paused) {
@@ -191,7 +222,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.35 });
     vObs.observe(vid);
 
-    // Pause si onglet caché
     document.addEventListener('visibilitychange', () => {
       if (document.hidden && !vid.paused) {
         vid.pause();
@@ -234,7 +264,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById(nextId)?.addEventListener('click', e => { e.stopPropagation(); goSlide(idx + 1); });
     dots.forEach((d, i) => d.addEventListener('click', e => { e.stopPropagation(); goSlide(i); }));
 
-    // Swipe tactile slider
     let tx = 0;
     sliderEl.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
     sliderEl.addEventListener('touchend', e => {
@@ -242,26 +271,33 @@ document.addEventListener('DOMContentLoaded', () => {
       if (Math.abs(diff) > 40) goSlide(diff > 0 ? idx + 1 : idx - 1);
     }, { passive: true });
 
-    // Ouvrir lightbox
     document.getElementById(mediaId)?.addEventListener('click', () => {
       if (!lbEl) return;
       goLb(idx);
       lbEl.classList.add('open');
+      scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top      = `-${scrollY}px`;
+      document.body.style.left     = '0';
+      document.body.style.right    = '0';
       document.body.style.overflow = 'hidden';
     });
 
-    // Lightbox controls
-    document.getElementById(lbCloseId)?.addEventListener('click', () => {
+    function closeLb() {
       lbEl.classList.remove('open');
+      document.body.style.position = '';
+      document.body.style.top      = '';
+      document.body.style.left     = '';
+      document.body.style.right    = '';
       document.body.style.overflow = '';
-    });
-    lbEl?.addEventListener('click', e => {
-      if (e.target === lbEl) { lbEl.classList.remove('open'); document.body.style.overflow = ''; }
-    });
+      window.scrollTo(0, scrollY);
+    }
+
+    document.getElementById(lbCloseId)?.addEventListener('click', closeLb);
+    lbEl?.addEventListener('click', e => { if (e.target === lbEl) closeLb(); });
     document.getElementById(lbPrevId)?.addEventListener('click', e => { e.stopPropagation(); goLb(lbIdx - 1); });
     document.getElementById(lbNextId)?.addEventListener('click', e => { e.stopPropagation(); goLb(lbIdx + 1); });
 
-    // Swipe tactile lightbox
     let ltx = 0;
     lbTrack?.addEventListener('touchstart', e => { ltx = e.touches[0].clientX; }, { passive: true });
     lbTrack?.addEventListener('touchend', e => {
@@ -277,12 +313,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lb1?.classList.contains('open')) {
       if (e.key === 'ArrowRight') document.getElementById('lbNext')?.click();
       if (e.key === 'ArrowLeft')  document.getElementById('lbPrev')?.click();
-      if (e.key === 'Escape')     { lb1.classList.remove('open'); document.body.style.overflow = ''; }
+      if (e.key === 'Escape') {
+        lb1.classList.remove('open');
+        document.body.style.position = '';
+        document.body.style.top      = '';
+        document.body.style.left     = '';
+        document.body.style.right    = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
+      }
     }
     if (lb2?.classList.contains('open')) {
       if (e.key === 'ArrowRight') document.getElementById('lbNext2')?.click();
       if (e.key === 'ArrowLeft')  document.getElementById('lbPrev2')?.click();
-      if (e.key === 'Escape')     { lb2.classList.remove('open'); document.body.style.overflow = ''; }
+      if (e.key === 'Escape') {
+        lb2.classList.remove('open');
+        document.body.style.position = '';
+        document.body.style.top      = '';
+        document.body.style.left     = '';
+        document.body.style.right    = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
+      }
     }
   });
 
