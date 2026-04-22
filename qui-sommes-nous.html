@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Découvrez le mouvement Yaakaar Takku Suxali Walo — histoire, valeurs, équipe.">
+<title>Qui sommes-nous — Yaakaar Takku Suxali Walo</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+.page-hero{background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:90px 32px 44px;text-align:center;position:relative;overflow:hidden;}
+.page-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:36px;background:var(--bg);clip-path:ellipse(55% 100% at 50% 100%);}
+.page-hero-inner{max-width:620px;margin:auto;position:relative;z-index:1;}
+.page-eyebrow{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:12px;display:block;}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,52px);font-weight:600;color:white;line-height:1.1;}
+.page-hero h1 em{font-style:italic;color:var(--gold-light);}
+.page-hero p{font-size:14px;color:rgba(255,255,255,0.65);margin-top:12px;line-height:1.7;}
+.page-main{background:var(--bg);padding:0 32px 60px;}
+.page-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start;}
+.page-content{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow);position:relative;top:-24px;}
+.page-section-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.page-section-label::before{content:'';width:20px;height:2px;background:var(--gold);display:block;}
+.page-content h2{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--text);margin-bottom:14px;line-height:1.2;}
+.page-content h2 em{font-style:italic;color:var(--blue);}
+.page-content p{font-size:14px;color:var(--text-muted);line-height:1.85;margin-bottom:12px;}
+.content-divider{height:1px;background:var(--border);margin:24px 0;}
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;}
+.value-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:16px;transition:border-color 0.2s;}
+.value-card:hover{border-color:rgba(26,95,180,0.2);}
+.value-icon{width:34px;height:34px;border-radius:9px;background:rgba(26,95,180,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.value-icon svg{color:var(--blue);}
+.value-card h4{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.value-card p{font-size:13px;color:var(--text-muted);line-height:1.6;margin:0;}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;}
+.team-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:12px;}
+.team-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-dark));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:white;flex-shrink:0;}
+.team-name{font-weight:600;font-size:13.5px;color:var(--text);}
+.team-role{font-size:11.5px;color:var(--text-muted);margin-top:2px;}
+.page-sidebar{display:flex;flex-direction:column;gap:14px;padding-top:4px;}
+.side-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 16px rgba(15,61,128,0.07);}
+.side-card-head{background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:13px 16px;display:flex;align-items:center;gap:9px;}
+.side-card-head svg{color:var(--gold-light);}
+.side-card-head h4{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:white;}
+.side-card-body{padding:16px;}
+.timeline{display:flex;flex-direction:column;gap:12px;}
+.tl-item{display:flex;gap:10px;align-items:flex-start;}
+.tl-dot{width:9px;height:9px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:5px;box-shadow:0 0 0 3px rgba(26,95,180,0.15);}
+.tl-year{font-size:11px;font-weight:700;color:var(--blue);margin-bottom:2px;}
+.tl-text{font-size:12.5px;color:var(--text-muted);line-height:1.5;}
+.chiffres{display:flex;flex-direction:column;}
+.chiffre-item{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);}
+.chiffre-item:last-child{border-bottom:none;}
+.chiffre-num{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--blue);}
+.chiffre-label{font-size:12px;color:var(--text-muted);}
+.cta-card{background:linear-gradient(135deg,var(--blue-dark),var(--blue));border-radius:var(--radius);padding:20px;color:white;text-align:center;}
+.cta-card h4{font-family:'Cormorant Garamond',serif;font-size:19px;margin-bottom:8px;}
+.cta-card p{font-size:12.5px;color:rgba(255,255,255,0.65);margin-bottom:14px;line-height:1.6;}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+@media(max-width:900px){.page-grid{grid-template-columns:1fr}.values-grid,.team-grid{grid-template-columns:1fr}.page-main{padding:0 20px 48px}.page-hero{padding:80px 20px 44px}}
+</style>
+</head>
+<body>
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo1.png" alt="Logo" class="logo-img">
+      <div class="logo-text">
+        <span class="logo-l1">Yaakaar Takku</span>
+        <span class="logo-l2">Suxali Walo</span>
+      </div>
+    </a>
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="qui-sommes-nous.html" class="active">Qui sommes-nous ?</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="projet.html">Projet</a></li>
+        <li><a href="municipales.html">Municipales 2027</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <div class="socials-mini">
+        <a href="https://www.facebook.com/yaakartakkusuxaliwalo" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24"><path d="M21.95 5.005l-3.306-.004c-3.206 0-5.277 2.124-5.277 5.415v2.495H10.05v4.515h3.317l-.004 9.575h4.641l.004-9.575h3.806l-.003-4.514h-3.803v-2.117c0-1.018.268-1.526 1.732-1.526l2.199-.005.006-4.259z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <svg width="15" height="15" viewBox="0 0 24 24"><path d="M24 4.56a9.83 9.83 0 0 1-2.83.78 4.93 4.93 0 0 0 2.16-2.72c-.95.56-2 .96-3.12 1.19a4.92 4.92 0 0 0-8.38 4.49A13.96 13.96 0 0 1 1.64 3.16a4.92 4.92 0 0 0 1.52 6.57A4.9 4.9 0 0 1 .96 9.1v.06a4.92 4.92 0 0 0 3.95 4.82 4.94 4.94 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.94 13.94 0 0 0 7.56 2.21c9.06 0 14.01-7.51 14.01-14.02 0-.21 0-.42-.02-.63A10 10 0 0 0 24 4.56z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg width="15" height="15" viewBox="0 0 24 24"><path d="M21.8 8s-.2-1.4-.8-2c-.77-.8-1.63-.81-2.02-.85C16.2 5 12 5 12 5s-4.2 0-6.98.15c-.4.04-1.25.05-2.02.85-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.77.8 1.78.77 2.23.85C6.8 18.97 12 19 12 19s4.2 0 6.98-.18c.4-.04 1.25-.05 2.02-.85.6-.6.8-2 .8-2S22 14.3 22 12.7v-1.5C22 9.6 21.8 8 21.8 8zM9.75 15.02V8.98l6.5 3.04-6.5 3z" fill="currentColor"/></svg>
+        </a>
+      </div>
+      <a href="adhesion.html" class="btn-join">J'adhère</a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="header-line"></div>
+</header>
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="page-eyebrow">Yaakaar Takku Suxali Walo</span>
+    <h1>Qui sommes<br><em>nous ?</em></h1>
+    <p>Un mouvement citoyen né du Walo, au service du Walo.</p>
+  </div>
+</section>
+<main class="page-main">
+  <div class="page-grid">
+    <div class="page-content reveal">
+      <div class="page-section-label">Notre histoire</div>
+      <h2>Un mouvement ancré<br><em>dans le territoire</em></h2>
+      <p>Yaakaar Takku Suxali Walo est né d'une conviction profonde : les femmes et les hommes du Walo méritent une représentation locale forte, honnête et tournée vers l'avenir. Fondé en 2026, le mouvement rassemble des citoyens de tous horizons autour d'un projet politique et social commun.</p>
+      <p>Notre nom, en langue wolof, signifie <em>« Espoir, unité et transformation du Walo »</em>. Ce n'est pas un slogan : c'est notre feuille de route quotidienne.</p>
+      <div class="content-divider"></div>
+      <div class="page-section-label">Nos valeurs</div>
+      <h2>Ce qui nous<br><em>guide</em></h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h4>Solidarité</h4>
+          <p>Chaque citoyen compte. Nous ne laissons personne derrière.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h4>Intégrité</h4>
+          <p>La parole donnée est sacrée. La transparence est notre règle.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h4>Développement</h4>
+          <p>Projets concrets, impact mesurable sur la vie des habitants.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <h4>Action</h4>
+          <p>Les idées sans exécution ne valent rien. Nous agissons.</p>
+        </div>
+      </div>
+      <div class="content-divider"></div>
+      <div class="page-section-label">Notre équipe</div>
+      <h2>Les visages du<br><em>mouvement</em></h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">ML</div>
+          <div><div class="team-name">Mouhamadou LÔ</div><div class="team-role">Coordonnateur National</div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:linear-gradient(135deg,var(--gold),#a8722e)">SG</div>
+          <div><div class="team-name">Secrétariat Général</div><div class="team-role">Organisation & Communication</div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#2a8a5e,#1a6a4e)">BP</div>
+          <div><div class="team-name">Bureau Politique</div><div class="team-role">Orientation & Stratégie</div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#8a2a6e,#6a1a5e)">JG</div>
+          <div><div class="team-name">Jeunesse & Genre</div><div class="team-role">Inclusion & Mobilisation</div></div>
+        </div>
+      </div>
+      <div class="content-divider"></div>
+      <div class="btn-row">
+        <a href="adhesion.html" class="btn-primary">Rejoindre le mouvement</a>
+        <a href="projet.html" class="btn-outline">Notre projet</a>
+      </div>
+    </div>
+    <div class="page-sidebar">
+      <div class="side-card reveal">
+        <div class="side-card-head">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <h4>Chronologie</h4>
+        </div>
+        <div class="side-card-body">
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-year">2024</div><div class="tl-text">Premiers cercles de réflexion citoyenne</div></div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-year">Jan 2026</div><div class="tl-text">Création officielle du mouvement</div></div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-year">Avr 2026</div><div class="tl-text">FEDAG 2026 — 1ère édition à Dagana</div></div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-year">2027</div><div class="tl-text">Objectif Municipales — 3 communes</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="side-card reveal">
+        <div class="side-card-head">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <h4>En chiffres</h4>
+        </div>
+        <div class="side-card-body">
+          <div class="chiffres">
+            <div class="chiffre-item"><span class="chiffre-label">Militants actifs</span><span class="chiffre-num">100+</span></div>
+            <div class="chiffre-item"><span class="chiffre-label">Communes couvertes</span><span class="chiffre-num">3</span></div>
+            <div class="chiffre-item"><span class="chiffre-label">Actions menées</span><span class="chiffre-num">12</span></div>
+            <div class="chiffre-item"><span class="chiffre-label">Objectif municipal</span><span class="chiffre-num">2027</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="cta-card reveal">
+        <h4>Vous impliquer ?</h4>
+        <p>Chaque nouvelle voix compte pour le Walo.</p>
+        <a href="adhesion.html" class="btn-primary" style="font-size:13px;padding:10px 20px;">Je m'engage</a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+       <div class="footer-logo-text">
+        <span class="footer-logo-main">Yaakaar Takku</span>
+        <span class="footer-logo-sub">Suxali Walo</span>
+      </div>
+      <p>Mouvement citoyen pour le développement et la solidarité dans le Walo, Sénégal.</p>
+      <div class="footer-socials">
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M24 4.56a9.83 9.83 0 0 1-2.83.78 4.93 4.93 0 0 0 2.16-2.72c-.95.56-2 .96-3.12 1.19a4.92 4.92 0 0 0-8.38 4.49A13.96 13.96 0 0 1 1.64 3.16a4.92 4.92 0 0 0 1.52 6.57A4.9 4.9 0 0 1 .96 9.1v.06a4.92 4.92 0 0 0 3.95 4.82 4.94 4.94 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.94 13.94 0 0 0 7.56 2.21c9.06 0 14.01-7.51 14.01-14.02 0-.21 0-.42-.02-.63A10 10 0 0 0 24 4.56z" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com/yaakartakkusuxaliwalo" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M21.95 5.005l-3.306-.004c-3.206 0-5.277 2.124-5.277 5.415v2.495H10.05v4.515h3.317l-.004 9.575h4.641l.004-9.575h3.806l-.003-4.514h-3.803v-2.117c0-1.018.268-1.526 1.732-1.526l2.199-.005.006-4.259z" fill="currentColor"/></svg></a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M21.8 8s-.2-1.4-.8-2c-.77-.8-1.63-.81-2.02-.85C16.2 5 12 5 12 5s-4.2 0-6.98.15c-.4.04-1.25.05-2.02.85-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.77.8 1.78.77 2.23.85C6.8 18.97 12 19 12 19s4.2 0 6.98-.18c.4-.04 1.25-.05 2.02-.85.6-.6.8-2 .8-2S22 14.3 22 12.7v-1.5C22 9.6 21.8 8 21.8 8zM9.75 15.02V8.98l6.5 3.04-6.5 3z" fill="currentColor"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-nav">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="qui-sommes-nous.html">Qui sommes-nous ?</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="projet.html">Projet</a></li>
+        <li><a href="municipales.html">Municipales 2027</a></li>
+      </ul>
+    </div>
+    <div class="footer-nav">
+      <h4>Rejoindre</h4>
+      <ul>
+        <li><a href="adhesion.html">Adhérer en ligne</a></li>
+        <li><a href="adhesion.html">Militer</a></li>
+      </ul>
+    </div>
+    <div class="footer-newsletter">
+      <h4>Newsletter</h4>
+      <p>Restez informé des actions du mouvement.</p>
+      <form class="nl-form" onsubmit="return false">
+        <input type="email" placeholder="Votre adresse email" required>
+        <button type="submit">&#8594;</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&#169; Yaakaar Takku Suxali Walo 2026</span>
+    <span class="dev-by">Dev by <strong>SKadiar Design</strong></span>
+  </div>
+</footer>
+<div class="float-widget" id="floatWidget">
+  <div class="float-menu" id="floatMenu">
+    <a href="https://wa.me/221785457329" target="_blank" rel="noopener noreferrer" class="float-item wa">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a href="mailto:contact@yaakaar-walo.sn" class="float-item mail">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 8 10-8"/></svg>
+      Email
+    </a>
+    <a href="tel:+221785457329" class="float-item phone">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.22 2 2 0 012.03 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      Appel
+    </a>
+  </div>
+  <button class="float-btn" id="floatToggle" aria-label="Contact">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-chat"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" class="icon-close" style="display:none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var header = document.getElementById('header');
+  window.addEventListener('scroll', function() { header.classList.toggle('scrolled', scrollY > 20); }, { passive: true });
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  if (burger) burger.addEventListener('click', function() {
+    burger.classList.toggle('open');
+    nav.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  });
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+  var fw = document.getElementById('floatWidget');
+  var ft = document.getElementById('floatToggle');
+  if (ft) ft.addEventListener('click', function() {
+    fw.classList.toggle('open');
+    var o = fw.classList.contains('open');
+    ft.querySelector('.icon-chat').style.display = o ? 'none' : '';
+    ft.querySelector('.icon-close').style.display = o ? '' : 'none';
+  });
+});
+</script>
+
+</body>
+</html>

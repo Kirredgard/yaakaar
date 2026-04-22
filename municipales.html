@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Yaakaar Takku Suxali Walo se prépare pour les municipales 2027.">
+<title>Municipales 2027 — Yaakaar Takku Suxali Walo</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+.page-hero{background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:90px 32px 44px;text-align:center;position:relative;overflow:hidden;}
+.page-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:36px;background:var(--bg);clip-path:ellipse(55% 100% at 50% 100%);}
+.page-hero-inner{max-width:640px;margin:auto;position:relative;z-index:1;}
+.page-eyebrow{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:12px;display:block;}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,52px);font-weight:600;color:white;line-height:1.1;}
+.page-hero h1 em{font-style:italic;color:var(--gold-light);}
+.page-hero p{font-size:14px;color:rgba(255,255,255,0.65);margin-top:12px;line-height:1.7;}
+.muni-main{background:var(--bg);padding:0 32px 60px;}
+.muni-inner{max-width:1100px;margin:0 auto;position:relative;top:-20px;}
+.countdown-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 28px;margin-bottom:20px;box-shadow:var(--shadow);text-align:center;}
+.countdown-card h2{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--text);margin-bottom:18px;}
+.countdown-card h2 em{color:var(--blue);font-style:italic;}
+.countdown-wrap{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.countdown-unit{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;min-width:76px;}
+.countdown-num{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--blue);line-height:1;display:block;}
+.countdown-lbl{font-size:10px;color:var(--text-dim);letter-spacing:1.5px;text-transform:uppercase;margin-top:3px;display:block;}
+.muni-grid{display:grid;grid-template-columns:2fr 1fr;gap:18px;}
+.muni-content{display:flex;flex-direction:column;gap:14px;}
+.muni-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:0 2px 12px rgba(15,61,128,0.05);}
+.muni-section-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.muni-section-label::before{content:'';width:18px;height:2px;background:var(--gold);display:block;}
+.muni-card h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--text);margin-bottom:10px;}
+.muni-card h3 em{font-style:italic;color:var(--blue);}
+.muni-card p{font-size:13.5px;color:var(--text-muted);line-height:1.8;margin-bottom:10px;}
+.communes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px;}
+.commune-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-align:center;transition:all 0.2s;}
+.commune-card:hover{border-color:rgba(26,95,180,0.2);background:white;}
+.commune-icon{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-dark));display:flex;align-items:center;justify-content:center;margin:0 auto 7px;}
+.commune-icon svg{color:white;}
+.commune-name{font-size:13px;font-weight:700;color:var(--text);}
+.commune-dept{font-size:10.5px;color:var(--text-dim);margin-top:1px;}
+.steps-list{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+.step-item{display:flex;gap:10px;align-items:flex-start;}
+.step-circle{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
+.step-circle.done{background:var(--gold);color:white;}
+.step-circle.active{background:var(--blue);color:white;}
+.step-circle.pending{background:var(--bg2);color:var(--text-dim);border:1.5px solid var(--border);}
+.step-info h4{font-size:13.5px;font-weight:600;color:var(--text);margin-bottom:1px;}
+.step-info p{font-size:12px;color:var(--text-muted);}
+.muni-sidebar{display:flex;flex-direction:column;gap:14px;}
+.stat-blue-card{background:linear-gradient(135deg,var(--blue-dark),var(--blue));border-radius:var(--radius);padding:18px;color:white;}
+.stat-blue-card h4{font-family:'Cormorant Garamond',serif;font-size:17px;margin-bottom:14px;color:rgba(255,255,255,0.9);}
+.stat-rows{display:flex;flex-direction:column;gap:8px;}
+.stat-row{display:flex;align-items:center;justify-content:space-between;padding:9px 11px;background:rgba(255,255,255,0.08);border-radius:8px;}
+.stat-row-label{font-size:12px;color:rgba(255,255,255,0.7);}
+.stat-row-val{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--gold-light);}
+.engage-side{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);}
+.engage-side h4{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--text);margin-bottom:7px;}
+.engage-side p{font-size:12.5px;color:var(--text-muted);line-height:1.7;margin-bottom:14px;}
+@media(max-width:900px){.muni-grid{grid-template-columns:1fr}.communes-grid{grid-template-columns:repeat(2,1fr)}.muni-main{padding:0 20px 48px}.page-hero{padding:80px 20px 44px}}
+@media(max-width:480px){.communes-grid{grid-template-columns:1fr}.countdown-wrap{gap:8px}.countdown-unit{min-width:68px;padding:10px 12px}}
+</style>
+</head>
+<body>
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo1.png" alt="Logo" class="logo-img">
+      <div class="logo-text">
+        <span class="logo-l1">Yaakaar Takku</span>
+        <span class="logo-l2">Suxali Walo</span>
+      </div>
+    </a>
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="qui-sommes-nous.html">Qui sommes-nous ?</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="projet.html">Projet</a></li>
+        <li><a href="municipales.html" class="active">Municipales 2027</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <div class="socials-mini">
+        <a href="https://www.facebook.com/yaakartakkusuxaliwalo" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24"><path d="M21.95 5.005l-3.306-.004c-3.206 0-5.277 2.124-5.277 5.415v2.495H10.05v4.515h3.317l-.004 9.575h4.641l.004-9.575h3.806l-.003-4.514h-3.803v-2.117c0-1.018.268-1.526 1.732-1.526l2.199-.005.006-4.259z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <svg width="15" height="15" viewBox="0 0 24 24"><path d="M24 4.56a9.83 9.83 0 0 1-2.83.78 4.93 4.93 0 0 0 2.16-2.72c-.95.56-2 .96-3.12 1.19a4.92 4.92 0 0 0-8.38 4.49A13.96 13.96 0 0 1 1.64 3.16a4.92 4.92 0 0 0 1.52 6.57A4.9 4.9 0 0 1 .96 9.1v.06a4.92 4.92 0 0 0 3.95 4.82 4.94 4.94 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.94 13.94 0 0 0 7.56 2.21c9.06 0 14.01-7.51 14.01-14.02 0-.21 0-.42-.02-.63A10 10 0 0 0 24 4.56z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg width="15" height="15" viewBox="0 0 24 24"><path d="M21.8 8s-.2-1.4-.8-2c-.77-.8-1.63-.81-2.02-.85C16.2 5 12 5 12 5s-4.2 0-6.98.15c-.4.04-1.25.05-2.02.85-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.77.8 1.78.77 2.23.85C6.8 18.97 12 19 12 19s4.2 0 6.98-.18c.4-.04 1.25-.05 2.02-.85.6-.6.8-2 .8-2S22 14.3 22 12.7v-1.5C22 9.6 21.8 8 21.8 8zM9.75 15.02V8.98l6.5 3.04-6.5 3z" fill="currentColor"/></svg>
+        </a>
+      </div>
+      <a href="adhesion.html" class="btn-join">J'adhère</a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="header-line"></div>
+</header>
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="page-eyebrow">Objectif politique</span>
+    <h1>Municipales<br><em>2027</em></h1>
+    <p>Yaakaar Takku Suxali Walo se prépare pour les élections locales. Chaque voix compte.</p>
+  </div>
+</section>
+<main class="muni-main">
+  <div class="muni-inner">
+    <div class="countdown-card reveal">
+      <h2>Compte à rebours — <em>Élections 2027</em></h2>
+      <div class="countdown-wrap">
+        <div class="countdown-unit"><span class="countdown-num" id="cd-days">--</span><span class="countdown-lbl">Jours</span></div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-lbl">Heures</span></div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-mins">--</span><span class="countdown-lbl">Minutes</span></div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-secs">--</span><span class="countdown-lbl">Secondes</span></div>
+      </div>
+    </div>
+    <div class="muni-grid">
+      <div class="muni-content">
+        <div class="muni-card reveal">
+          <div class="muni-section-label">Notre ambition</div>
+          <h3>Remporter les communes<br><em>clés du Walo</em></h3>
+          <p>« Le mouvement se donne pour objectif, dans la commune, de construire une implantation durable et crédible en vue des municipales de 2027. Il vise à renforcer son ancrage territorial à travers une présence active dans les quartiers et villages, à structurer une organisation locale solide et inclusive, et à encourager une participation citoyenne large, continue et innovante. À travers cette dynamique, 
+		  le mouvement ambitionne de porter un projet municipal cohérent, proche des préoccupations des populations et capable de répondre efficacement aux enjeux de développement de Dagana. »</p>
+          <div class="communes-grid">
+            <div class="commune-card">
+              <div class="commune-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div class="commune-name">Dagana</div>
+              <div class="commune-dept">Saint-Louis</div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="muni-card reveal">
+          <div class="muni-section-label">Feuille de route</div>
+          <h3>Les étapes clés<br><em>vers 2027</em></h3>
+          <div class="steps-list">
+            <div class="step-item"><div class="step-circle done">&#10003;</div><div class="step-info"><h4>Création du mouvement</h4><p>Janvier 2026 — Lancement officiel</p></div></div>
+            <div class="step-item"><div class="step-circle done">&#10003;</div><div class="step-info"><h4>Consultation citoyenne</h4><p>Fév–Avr 2026 — Rencontres dans les communes</p></div></div>
+            <div class="step-item"><div class="step-circle active">&#8594;</div><div class="step-info"><h4>Structuration & recrutement</h4><p>Mai–Déc 2026 — Constitution des listes</p></div></div>
+            <div class="step-item"><div class="step-circle pending">4</div><div class="step-info"><h4>Campagne électorale</h4><p>Jan–Mar 2027 — Mobilisation sur le terrain</p></div></div>
+            <div class="step-item"><div class="step-circle pending">5</div><div class="step-info"><h4>Élections municipales</h4><p>2027 — Journée de vote</p></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="muni-sidebar">
+        <div class="stat-blue-card reveal">
+          <h4>Objectifs chiffrés</h4>
+          <div class="stat-rows">
+            <div class="stat-row"><span class="stat-row-label">Communes visées</span><span class="stat-row-val">1</span></div>
+            <div class="stat-row"><span class="stat-row-label">Militants mobilisés</span><span class="stat-row-val">500+</span></div>
+            <div class="stat-row"><span class="stat-row-label">Sections créées</span><span class="stat-row-val">12</span></div>
+            <div class="stat-row"><span class="stat-row-label">Journées d'action</span><span class="stat-row-val">50</span></div>
+          </div>
+        </div>
+        <div class="engage-side reveal">
+          <h4>Rejoindre pour 2027 ?</h4>
+          <p>Les élections se gagnent sur le terrain. Chaque militant est précieux.</p>
+          <a href="adhesion.html" class="btn-primary full-w">Je m'engage pour 2027</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+       <div class="footer-logo-text">
+        <span class="footer-logo-main">Yaakaar Takku</span>
+        <span class="footer-logo-sub">Suxali Walo</span>
+      </div>
+      <p>Mouvement citoyen pour le développement et la solidarité dans le Walo, Sénégal.</p>
+      <div class="footer-socials">
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M24 4.56a9.83 9.83 0 0 1-2.83.78 4.93 4.93 0 0 0 2.16-2.72c-.95.56-2 .96-3.12 1.19a4.92 4.92 0 0 0-8.38 4.49A13.96 13.96 0 0 1 1.64 3.16a4.92 4.92 0 0 0 1.52 6.57A4.9 4.9 0 0 1 .96 9.1v.06a4.92 4.92 0 0 0 3.95 4.82 4.94 4.94 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.94 13.94 0 0 0 7.56 2.21c9.06 0 14.01-7.51 14.01-14.02 0-.21 0-.42-.02-.63A10 10 0 0 0 24 4.56z" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com/yaakartakkusuxaliwalo" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M21.95 5.005l-3.306-.004c-3.206 0-5.277 2.124-5.277 5.415v2.495H10.05v4.515h3.317l-.004 9.575h4.641l.004-9.575h3.806l-.003-4.514h-3.803v-2.117c0-1.018.268-1.526 1.732-1.526l2.199-.005.006-4.259z" fill="currentColor"/></svg></a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M21.8 8s-.2-1.4-.8-2c-.77-.8-1.63-.81-2.02-.85C16.2 5 12 5 12 5s-4.2 0-6.98.15c-.4.04-1.25.05-2.02.85-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.77.8 1.78.77 2.23.85C6.8 18.97 12 19 12 19s4.2 0 6.98-.18c.4-.04 1.25-.05 2.02-.85.6-.6.8-2 .8-2S22 14.3 22 12.7v-1.5C22 9.6 21.8 8 21.8 8zM9.75 15.02V8.98l6.5 3.04-6.5 3z" fill="currentColor"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-nav">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="qui-sommes-nous.html">Qui sommes-nous ?</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="projet.html">Projet</a></li>
+        <li><a href="municipales.html">Municipales 2027</a></li>
+      </ul>
+    </div>
+    <div class="footer-nav">
+      <h4>Rejoindre</h4>
+      <ul>
+        <li><a href="adhesion.html">Adhérer en ligne</a></li>
+        <li><a href="adhesion.html">Militer</a></li>
+      </ul>
+    </div>
+    <div class="footer-newsletter">
+      <h4>Newsletter</h4>
+      <p>Restez informé des actions du mouvement.</p>
+      <form class="nl-form" onsubmit="return false">
+        <input type="email" placeholder="Votre adresse email" required>
+        <button type="submit">&#8594;</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&#169; Yaakaar Takku Suxali Walo 2026</span>
+    <span class="dev-by">Dev by <strong>SKadiar Design</strong></span>
+  </div>
+</footer>
+<div class="float-widget" id="floatWidget">
+  <div class="float-menu" id="floatMenu">
+    <a href="https://wa.me/221785457329" target="_blank" rel="noopener noreferrer" class="float-item wa">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a href="mailto:contact@yaakaar-walo.sn" class="float-item mail">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 8 10-8"/></svg>
+      Email
+    </a>
+    <a href="tel:+221785457329" class="float-item phone">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.22 2 2 0 012.03 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      Appel
+    </a>
+  </div>
+  <button class="float-btn" id="floatToggle" aria-label="Contact">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-chat"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" class="icon-close" style="display:none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var header = document.getElementById('header');
+  window.addEventListener('scroll', function() { header.classList.toggle('scrolled', scrollY > 20); }, { passive: true });
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  if (burger) burger.addEventListener('click', function() {
+    burger.classList.toggle('open');
+    nav.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  });
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+  var fw = document.getElementById('floatWidget');
+  var ft = document.getElementById('floatToggle');
+  if (ft) ft.addEventListener('click', function() {
+    fw.classList.toggle('open');
+    var o = fw.classList.contains('open');
+    ft.querySelector('.icon-chat').style.display = o ? 'none' : '';
+    ft.querySelector('.icon-close').style.display = o ? '' : 'none';
+  });
+});
+</script>
+<script>
+(function() {
+  var target = new Date('2027-04-01T08:00:00');
+  function update() {
+    var diff = target - new Date();
+    if (diff <= 0) return;
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    function pad(n, l) { return String(n).padStart(l, '0'); }
+    document.getElementById('cd-days').textContent  = pad(d, 3);
+    document.getElementById('cd-hours').textContent = pad(h, 2);
+    document.getElementById('cd-mins').textContent  = pad(m, 2);
+    document.getElementById('cd-secs').textContent  = pad(s, 2);
+  }
+  update();
+  setInterval(update, 1000);
+})();
+</script>
+</body>
+</html>
