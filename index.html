@@ -3,398 +3,357 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="description" content="Yaakaar Takku Suxali Walo — Mouvement citoyen pour le développement du Walo, Sénégal. Engagement, solidarité, avenir.">
 <title>Yaakaar Takku Suxali Walo</title>
-
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
 
-<header class="header-wrap">
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header class="header" id="header">
+  <div class="header-inner">
 
-  <!-- TOP BAR -->
-  <div class="top-bar">
-
-    <a href="index.html" class="logo-area">
-  <img src="images/logo1.png" alt="Logo" class="logo-icon">
-  
-  <div class="logo-text">
-    <div class="line1">Yaakaar Takku</div>
-    <div class="line1">Suxali Walo</div>
-  </div>
-</a>
-
-   <div class="cta-group">
-  <button class="btn-cta" onclick="window.location.href='adhesion.html'">J'adhère</button>
-  <button class="btn-cta" onclick="window.location.href='test.html'">Espace Militant</button>
-  <button class="btn-cta outline" id="contactBtn">Contact</button>
-</div>
-
-  </div>
-
-  <!-- NAV -->
-  <div class="nav-bar">
-
-    <ul class="nav-links">
-      <li><a href="index.html">Acceuil</a></li>
-      <li><a href="test.html" class="active">Qui sommes-nous ?</a></li>
-      <li><a href="test.html">Actualités</a></li>
-      <li><a href="test.html">Projet</a></li>
-      <li><a href="test.html">Municipales 2027</a></li>
-    </ul>
-
-      <!-- SOCIAL À DROITE -->
-    <div class="social-group">
-      <span class="social-label">NOUS SUIVRE</span>
-
-      <!-- Twitter -->
-      <div class="social-icon">
-       <a href="https://x.com/?lang=fr" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24">
-          <path d="M24 4.56a9.83 9.83 0 0 1-2.83.78 4.93 4.93 0 0 0 2.16-2.72c-.95.56-2 .96-3.12 1.19a4.92 4.92 0 0 0-8.38 4.49A13.96 13.96 0 0 1 1.64 3.16a4.92 4.92 0 0 0 1.52 6.57A4.9 4.9 0 0 1 .96 9.1v.06a4.92 4.92 0 0 0 3.95 4.82 4.94 4.94 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.94 13.94 0 0 0 7.56 2.21c9.06 0 14.01-7.51 14.01-14.02 0-.21 0-.42-.02-.63A10 10 0 0 0 24 4.56z" fill="#1a8fe3"/>
-        </svg>
-       </a>
+    <a href="index.html" class="logo">
+      <img src="images/logo1.png" alt="Yaakaar Logo" class="logo-img">
+      <div class="logo-text">
+        <span class="logo-l1">Yaakaar Takku</span>
+        <span class="logo-l2">Suxali Walo</span>
       </div>
+    </a>
 
-      <!-- Facebook -->
-     <div class="social-icon">
-  <a href="https://www.facebook.com/yaakartakkusuxaliwalo" target="_blank">
-    <svg width="14" height="14" viewBox="0 0 24 24">
-      <path d="M21.95 5.005l-3.306-.004c-3.206 0-5.277 2.124-5.277 5.415v2.495H10.05v4.515h3.317l-.004 9.575h4.641l.004-9.575h3.806l-.003-4.514h-3.803v-2.117c0-1.018.268-1.526 1.732-1.526l2.199-.005.006-4.259z" fill="#1a8fe3"/>
-    </svg>
-  </a>
-</div>
+     <nav class="nav" id="nav">
+      <ul>
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="qui-sommes-nous.html">Qui sommes-nous ?</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="projet.html">Projet</a></li>
+        <li><a href="municipales.html">Municipales 2027</a></li>
+      </ul>
+    </nav>
 
-      <!-- YouTube -->
-      <div class="social-icon">
-       <a href="https://www.youtube.com/watch?v=uHSuhs0d7oE" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24">
-          <path d="M21.8 8s-.2-1.4-.8-2c-.77-.8-1.63-.81-2.02-.85C16.2 5 12 5 12 5s-4.2 0-6.98.15c-.4.04-1.25.05-2.02.85-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.77.8 1.78.77 2.23.85C6.8 18.97 12 19 12 19s4.2 0 6.98-.18c.4-.04 1.25-.05 2.02-.85.6-.6.8-2 .8-2S22 14.3 22 12.7v-1.5C22 9.6 21.8 8 21.8 8zM9.75 15.02V8.98l6.5 3.04-6.5 3z" fill="#1a8fe3"/>
-        </svg>
-       </a>
+    <div class="header-right">
+      <div class="socials-mini">
+        <a href="https://www.facebook.com/yaakartakkusuxaliwalo" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24"><path d="M21.95 5.005l-3.306-.004c-3.206 0-5.277 2.124-5.277 5.415v2.495H10.05v4.515h3.317l-.004 9.575h4.641l.004-9.575h3.806l-.003-4.514h-3.803v-2.117c0-1.018.268-1.526 1.732-1.526l2.199-.005.006-4.259z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
+          <svg width="15" height="15" viewBox="0 0 24 24"><path d="M24 4.56a9.83 9.83 0 0 1-2.83.78 4.93 4.93 0 0 0 2.16-2.72c-.95.56-2 .96-3.12 1.19a4.92 4.92 0 0 0-8.38 4.49A13.96 13.96 0 0 1 1.64 3.16a4.92 4.92 0 0 0 1.52 6.57A4.9 4.9 0 0 1 .96 9.1v.06a4.92 4.92 0 0 0 3.95 4.82 4.94 4.94 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.94 13.94 0 0 0 7.56 2.21c9.06 0 14.01-7.51 14.01-14.02 0-.21 0-.42-.02-.63A10 10 0 0 0 24 4.56z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg width="15" height="15" viewBox="0 0 24 24"><path d="M21.8 8s-.2-1.4-.8-2c-.77-.8-1.63-.81-2.02-.85C16.2 5 12 5 12 5s-4.2 0-6.98.15c-.4.04-1.25.05-2.02.85-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.77.8 1.78.77 2.23.85C6.8 18.97 12 19 12 19s4.2 0 6.98-.18c.4-.04 1.25-.05 2.02-.85.6-.6.8-2 .8-2S22 14.3 22 12.7v-1.5C22 9.6 21.8 8 21.8 8zM9.75 15.02V8.98l6.5 3.04-6.5 3z" fill="currentColor"/></svg>
+        </a>
       </div>
-
-      <!-- Instagram -->
-      <div class="social-icon">
-       <a href="https://www.instagram.com/?hl=fr" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="#1a8fe3" stroke-width="2"/>
-          <circle cx="12" cy="12" r="4" fill="none" stroke="#1a8fe3" stroke-width="2"/>
-          <circle cx="17.5" cy="6.5" r="1.5" fill="#1a8fe3"/>
-        </svg>
-       </a>
-      </div>
-
-      <!-- Telegram -->
-      <div class="social-icon">
-       <a href="https://web.telegram.org/a/" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24">
-          <path d="M9.5 16.5l-.4 4.5c.6 0 .9-.3 1.3-.6l3.1-3 6.5 4.7c1.2.7 2 .3 2.3-1.1l4.2-19.6c.4-1.8-.6-2.5-1.7-2.1L1.3 9.5c-1.7.7-1.7 1.6-.3 2l5.6 1.8L19.8 5.8c.6-.4 1.1-.2.7.2"/>
-        </svg>
-       </a>
-      </div>
+      <a href="adhesion.html" class="btn-join">J'adhère</a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
 
   </div>
-<div class="burger" id="burger">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
+  <div class="header-line"></div>
 </header>
 
-<!-- HERO -->
-<section class="hero-video">
-
-  <!-- VIDEO -->
-  <video autoplay muted loop playsinline class="hero-bg-video" poster="images/hero.jpg">
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
     <source src="videos/hero2.mp4" type="video/mp4">
   </video>
-
-  <!-- OVERLAY -->
   <div class="hero-overlay"></div>
 
-  <!-- CONTENT -->
   <div class="hero-content">
-  <div class="hero-content">
-
-  <div class="hero-subtitle">
-    Yaakaar Takku Suxali Walo
-  </div>
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      Mouvement citoyen — Walo, Sénégal
+    </div>
     <h1 class="hero-title">
-       <span class="line1">UN NOUVEAU SOUFFLE POUR LE WALO</span><br>
-      <span class="line2">Engagement • Développement • Solidarité</span>
+      <em>Un nouveau souffle<br>pour le Walo</em>
     </h1>
-
-    <button class="hero-btn" onclick="window.location.href='adhesion.html'">
-      Je souhaite m'engager
-    </button>
+    <p class="hero-sub">Engagement · Développement · Solidarité</p>
+    <div class="hero-actions">
+      <a href="adhesion.html" class="btn-primary">Je m'engage</a>
+      <button class="btn-ghost" id="contactBtn">Nous contacter</button>
+    </div>
   </div>
-
+  
 </section>
 
-<!-- ENGAGEMENT -->
+<!-- ═══════════════════════ CHIFFRES ═══════════════════════ -->
+
+  
+    
+    
+    
+    <div class="municipal-ticker">
+      <span>Municipales 2027</span>
+      <span class="ticker-sep">✦</span>
+      <span>Ensemble pour le Walo</span>
+      <span class="ticker-sep">✦</span>
+      <span>Changement & Solidarité</span>
+      <span class="ticker-sep">✦</span>
+      <span>Municipales 2027</span>
+      <span class="ticker-sep">✦</span>
+      <span>Ensemble pour le Walo</span>
+      <span class="ticker-sep">✦</span>
+      <span>Changement & Solidarité</span>
+    </div>
+  
+
+
+<!-- ═══════════════════════ PRÉSIDENT ═══════════════════════ -->
 <section class="president reveal">
-  <div class="news-header">
-    <span class="news-label">MESSAGE DU PRÉSIDENT</span>
+  <div class="president-label">
+    <span>Message du Président</span>
   </div>
 
-  <div class="president-container">
-
-    <!-- IMAGE -->
-    <div class="president-image">
-      <div class="image-wrapper">
-        <img src="images/directeur.jpg" alt="Président du mouvement">
-        <div class="image-overlay"></div>
+  <div class="president-inner">
+    <div class="president-visual">
+      <div class="president-img-wrap">
+        <img src="images/directeur.jpg" alt="Mouhamadou LÔ, Coordonnateur" loading="lazy">
+        <div class="president-img-overlay"></div>
+      </div>
+      <div class="president-quote-card">
+        <svg class="quote-icon" width="28" height="22" viewBox="0 0 28 22"><path d="M0 22V13.2C0 5.867 4.2 1.267 12.6 0l1.4 2.6C9.8 3.667 7.4 6.2 6.8 10.2H12V22H0zm16 0V13.2C16 5.867 20.2 1.267 28.6 0L30 2.6C25.8 3.667 23.4 6.2 22.8 10.2H28V22H16z" fill="currentColor"/></svg>
+        <p>Notre ambition est claire : construire un Walo plus juste, plus fort et plus solidaire.</p>
       </div>
     </div>
 
-    <!-- TEXTE -->
     <div class="president-content">
-
-      <h2>
-        Un engagement sincère<br>
-        <span>pour le Walo</span>
-      </h2>
-
+      <h2>Un engagement sincère<br><em>pour le Walo</em></h2>
       <p class="president-text">
-        Notre ambition est claire : construire un Walo plus juste, plus fort et plus solidaire.
-        Chaque citoyen a un rôle à jouer dans cette transformation.
-        Ensemble, nous pouvons relever les défis et bâtir un avenir durable pour les générations futures.
+        Chaque citoyen a un rôle à jouer dans cette transformation. Ensemble, nous pouvons relever les défis et bâtir un avenir durable pour les générations futures du Walo.
       </p>
-
-      <div class="president-signature">
-        Mouhamadou LÔ
+      <p class="president-text">
+        Le mouvement Yaakaar Takku Suxali Walo incarne une vision nouvelle : celle d'une gouvernance locale ancrée dans les réalités du terrain, au service de toutes les populations.
+      </p>
+      <div class="president-sig">
+        <div class="sig-name">Mouhamadou LÔ</div>
+        <div class="sig-role">Coordonnateur National — Yaakaar Takku Suxali Walo</div>
       </div>
-
-      <div class="president-role">
-        Coordonnateur du Mouvement " Yaakaar Takku Suxali Walo "
-      </div>
-
-      <button class="president-btn" onclick="window.location.href='test.html'">
-        Découvrir la vision
-      </button>
-
+      <a href="test.html" class="btn-primary">Découvrir la vision</a>
     </div>
-
   </div>
-
 </section>
 
-<!-- ACTUALITÉS -->
+<!-- ═══════════════════════ ACTUALITÉS ═══════════════════════ -->
 <section class="news reveal">
-
-  <div class="news-header">
-    <a href="test.html" class="news-label">ACTUALITÉS</a>
+  <div class="section-header">
+    <div class="section-label">
+      <span class="label-dot"></span>
+      <a href="test.html">Actualités</a>
+    </div>
+    <a href="test.html" class="see-all">Voir tout <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div>
 
   <div class="news-grid">
 
-    <!-- CARD VIDEO -->
-    <div class="news-card large">
-
-      <div class="news-media video" id="videoCard">
-
+    <!-- GRANDE CARTE VIDÉO 1 -->
+    <div class="news-card card-large">
+      <div class="card-media video-wrap" id="videoCard">
         <video class="video-player" id="myVideo" playsinline>
           <source src="videos/fedac26.mp4" type="video/mp4">
         </video>
-
-        <!-- Overlay play -->
         <div class="video-overlay" id="videoOverlay">
-          <div class="play-button">▶</div>
+          <div class="play-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
         </div>
-
-        <!-- CONTROLS -->
         <div class="video-controls" id="controls">
-          <button id="playPause">⏯</button>
-          <input type="range" id="progress" value="0" min="0" max="100">
-          <button id="muteBtn">🔊</button>
-          <button id="fullBtn">⛶</button>
+          <button id="playPause" aria-label="Lecture/Pause">⏯</button>
+          <input type="range" id="progress" value="0" min="0" max="100" aria-label="Progression">
+          <button id="muteBtn" aria-label="Muet">🔊</button>
+          <button id="fullBtn" aria-label="Plein écran">⛶</button>
         </div>
-
       </div>
-
-      <a href="test.html" class="news-content news-content-link">
-        <div class="news-meta">
-          <span>18.04.2026</span>
-          <span class="tag">FEDAG DAGANA</span>
-          <span class="tag light">VIDÉO</span>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-date">18.04.2026</span>
+          <span class="card-tag">FEDAG DAGANA</span>
+          <span class="card-tag light">VIDÉO</span>
         </div>
-        <h3>Première édition du FEDAG 2026</h3>
-        <p>Une feuille de route pour relancer l'économie locale</p>
-        <span class="news-read-more">Lire l'article →</span>
-      </a>
-
+        <a href="test.html" class="card-link">
+          <h3>Première édition du FEDAG 2026</h3>
+          <p>Une feuille de route pour relancer l'économie locale</p>
+          <span class="read-more">Lire l'article <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
     </div>
 
-    <!-- CARD IMAGE AVEC SLIDER + LIGHTBOX -->
+    <!-- CARTE IMAGE SLIDER 1 -->
     <div class="news-card">
-      <div class="news-media" id="cardMedia">
+      <div class="card-media slider-wrap" id="cardMedia">
         <div class="slider" id="cardSlider">
-          <img src="images/sante/P1.jpg" alt="Photo 1">
-          <img src="images/sante/P2.jpg" alt="Photo 2">
-          <img src="images/sante/P3.jpg" alt="Photo 3">
-          <img src="images/sante/P4.jpg" alt="Photo 4">
-          <img src="images/sante/P5.jpg" alt="Photo 5">
-          <img src="images/sante/P6.jpg" alt="Photo 6">
-          <img src="images/sante/P7.jpg" alt="Photo 7">
-          <img src="images/sante/P8.jpg" alt="Photo 8">
-          <img src="images/sante/P9.jpg" alt="Photo 9">
-          <img src="images/sante/P10.jpg" alt="Photo 10">
-          <img src="images/sante/P11.jpg" alt="Photo 11">
-          <img src="images/sante/P12.jpg" alt="Photo 12">
-          <img src="images/sante/P13.jpg" alt="Photo 13">
+          <img src="images/sante/P1.jpg" alt="Consultation ophtalmologique 1" loading="lazy">
+          <img src="images/sante/P2.jpg" alt="" loading="lazy">
+          <img src="images/sante/P3.jpg" alt="" loading="lazy">
+          <img src="images/sante/P4.jpg" alt="" loading="lazy">
+          <img src="images/sante/P5.jpg" alt="" loading="lazy">
+          <img src="images/sante/P6.jpg" alt="" loading="lazy">
+          <img src="images/sante/P7.jpg" alt="" loading="lazy">
+          <img src="images/sante/P8.jpg" alt="" loading="lazy">
+          <img src="images/sante/P9.jpg" alt="" loading="lazy">
+          <img src="images/sante/P10.jpg" alt="" loading="lazy">
+          <img src="images/sante/P11.jpg" alt="" loading="lazy">
+          <img src="images/sante/P12.jpg" alt="" loading="lazy">
+          <img src="images/sante/P13.jpg" alt="" loading="lazy">
         </div>
-        <button class="arrow prev" id="cardPrev">&#8249;</button>
-        <button class="arrow next" id="cardNext">&#8250;</button>
-        <div class="dots" id="cardDots">
-          <div class="dot active"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
+        <button class="s-arrow prev" id="cardPrev" aria-label="Précédent">&#8249;</button>
+        <button class="s-arrow next" id="cardNext" aria-label="Suivant">&#8250;</button>
+        <div class="s-dots" id="cardDots">
+          <div class="s-dot active"></div><div class="s-dot"></div><div class="s-dot"></div>
+          <div class="s-dot"></div><div class="s-dot"></div><div class="s-dot"></div>
+          <div class="s-dot"></div><div class="s-dot"></div><div class="s-dot"></div>
+          <div class="s-dot"></div><div class="s-dot"></div><div class="s-dot"></div>
+          <div class="s-dot"></div>
         </div>
-        <span class="zoom-hint">appuyer pour agrandir</span>
+        <span class="zoom-tip">Tap pour agrandir</span>
       </div>
-      <a href="test.html" class="news-content news-content-link">
-        <div class="news-meta">
-          <span>20.04.2026</span>
-          <span class="tag light">SANTÉ</span>
-          <span class="tag light">IMAGES</span>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-date">20.04.2026</span>
+          <span class="card-tag">SANTÉ</span>
+          <span class="card-tag light">IMAGES</span>
         </div>
-        <h3>Consultations ophtalmologiques gratuites</h3>
-        <p>Santé visuelle — Le mouvement Yaakaar Takku Suxali Walo au chevet des populations du Walo.</p>
-        <span class="news-read-more">Lire l'article →</span>
-      </a>
+        <a href="test.html" class="card-link">
+          <h3>Consultations ophtalmologiques gratuites</h3>
+          <p>Le mouvement au chevet des populations du Walo</p>
+          <span class="read-more">Lire l'article <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
     </div>
 
-    <!-- CARD VIDEO 2 -->
-    <div class="news-card large">
-
-      <div class="news-media video" id="videoCard2">
-
+    <!-- GRANDE CARTE VIDÉO 2 -->
+    <div class="news-card card-large">
+      <div class="card-media video-wrap" id="videoCard2">
         <video class="video-player" id="myVideo2" playsinline>
           <source src="videos/emission.mp4" type="video/mp4">
         </video>
-
-        <!-- Overlay play -->
         <div class="video-overlay" id="videoOverlay2">
-          <div class="play-button">▶</div>
+          <div class="play-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
         </div>
-
-        <!-- CONTROLS -->
         <div class="video-controls" id="controls2">
-          <button id="playPause2">⏯</button>
-          <input type="range" id="progress2" value="0" min="0" max="100">
-          <button id="muteBtn2">🔊</button>
-          <button id="fullBtn2">⛶</button>
+          <button id="playPause2" aria-label="Lecture/Pause">⏯</button>
+          <input type="range" id="progress2" value="0" min="0" max="100" aria-label="Progression">
+          <button id="muteBtn2" aria-label="Muet">🔊</button>
+          <button id="fullBtn2" aria-label="Plein écran">⛶</button>
         </div>
-
       </div>
-
-      <a href="test.html" class="news-content news-content-link">
-        <div class="news-meta">
-          <span>15.04.2026</span>
-          <span class="tag">POLITIQUE</span>
-          <span class="tag light">VIDÉO</span>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-date">15.04.2026</span>
+          <span class="card-tag">POLITIQUE</span>
+          <span class="card-tag light">VIDÉO</span>
         </div>
-        <h3>Débat politique</h3>
-        <p>Invité: Mouhamadou LÔ (Coordonnateur national mouvement Yaakaar Taku Suqali Walo)</p>
-        <span class="news-read-more">Lire l'article →</span>
-      </a>
-
+        <a href="test.html" class="card-link">
+          <h3>Débat politique — Émission spéciale</h3>
+          <p>Invité : Mouhamadou LÔ, Coordonnateur national</p>
+          <span class="read-more">Lire l'article <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
     </div>
 
-    <!-- CARD IMAGE AVEC SLIDER + LIGHTBOX 2 -->
+    <!-- CARTE IMAGE SLIDER 2 -->
     <div class="news-card">
-      <div class="news-media" id="cardMedia2">
+      <div class="card-media slider-wrap" id="cardMedia2">
         <div class="slider" id="cardSlider2">
-           <img src="images/invitation/P1.jpg" alt="Photo 1">
-          <img src="images/invitation/P2.jpg" alt="Photo 2">
-          <img src="images/invitation/P3.jpg" alt="Photo 3">
-          <img src="images/invitation/P4.jpg" alt="Photo 4">
-          <img src="images/invitation/P5.jpg" alt="Photo 5">
-          <img src="images/invitation/P6.jpg" alt="Photo 6">
+          <img src="images/invitation/P1.jpg" alt="Rencontre APTE 1" loading="lazy">
+          <img src="images/invitation/P2.jpg" alt="" loading="lazy">
+          <img src="images/invitation/P3.jpg" alt="" loading="lazy">
+          <img src="images/invitation/P4.jpg" alt="" loading="lazy">
+          <img src="images/invitation/P5.jpg" alt="" loading="lazy">
+          <img src="images/invitation/P6.jpg" alt="" loading="lazy">
         </div>
-        <button class="arrow prev" id="cardPrev2">&#8249;</button>
-        <button class="arrow next" id="cardNext2">&#8250;</button>
-        <div class="dots" id="cardDots2">
-          <div class="dot active"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          
+        <button class="s-arrow prev" id="cardPrev2" aria-label="Précédent">&#8249;</button>
+        <button class="s-arrow next" id="cardNext2" aria-label="Suivant">&#8250;</button>
+        <div class="s-dots" id="cardDots2">
+          <div class="s-dot active"></div><div class="s-dot"></div><div class="s-dot"></div>
+          <div class="s-dot"></div><div class="s-dot"></div><div class="s-dot"></div>
         </div>
-        <span class="zoom-hint">appuyer pour agrandir</span>
+        <span class="zoom-tip">Tap pour agrandir</span>
       </div>
-      <a href="test.html" class="news-content news-content-link">
-        <div class="news-meta">
-          <span>15.03.2026</span>
-          <span class="tag">ECHANGES</span>
-          <span class="tag light">IMAGES</span>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-date">15.03.2026</span>
+          <span class="card-tag">ÉCHANGES</span>
+          <span class="card-tag light">IMAGES</span>
         </div>
-        <h3>Rencontre de Sonko avec la coalition APTE</h3>
-        <p>Dans une dynamique de renforcement de l’unité, le coordonnateur national Mouhamadou Lô a répondu à l'invitation du président Ousmane Sonko lors du Ndogou de la coalition APTE.</p>
-        <span class="news-read-more">Lire l'article →</span>
-      </a>
+        <a href="test.html" class="card-link">
+          <h3>Rencontre de Sonko avec la coalition APTE</h3>
+          <p>Le coordonnateur répond à l'invitation du président Ousmane Sonko</p>
+          <span class="read-more">Lire l'article <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
     </div>
 
   </div>
 
-  <div class="news-more">
-    <a href="test.html" class="btn-more-news">Voir plus d'actualités</a>
+  <div class="news-cta">
+    <a href="actualites.html" class="btn-outline">Voir plus d'actualités</a>
   </div>
-
 </section>
-<section class="cta-section reveal">
-  <div class="cta-container">
 
-    <div class="cta-left">
-      <p class="cta-small">Yaakaar Takku Suxali Walo</p>
-      <h2>
-        REJOIGNEZ VOTRE<br>
-        <span>MOUVEMENT</span>
-      </h2>
-      <a href="adhesion.html" class="cta-btn-red">En savoir plus</a>
+<!-- ═══════════════════════ CTA REJOINDRE ═══════════════════════ -->
+<section class="join-section reveal">
+  <div class="join-inner">
+
+    <div class="join-content">
+      <span class="join-eyebrow">Yaakaar Takku Suxali Walo</span>
+      <h2>Rejoignez<br><em>le mouvement</em></h2>
+      <p>Le Walo a besoin de chaque voix. Engagez-vous aux côtés des militants pour bâtir ensemble un avenir solidaire.</p>
+      <a href="adhesion.html" class="btn-primary">Adhérer maintenant</a>
     </div>
 
-    <div class="cta-right">
+    <div class="join-map-wrap">
       <div id="map"></div>
-      <div class="cta-address">
-        <strong>Notre siège</strong><br>
-        Walo, Sénégal<br>
-        contact@walo.org
+      <div class="map-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <strong>Notre siège</strong><br>
+          Walo, Sénégal · contact@walo.org
+        </div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
 <footer class="footer">
+  <div class="footer-inner">
 
-  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="footer-logo-text">
+        <span class="footer-logo-main">Yaakaar Takku</span>
+        <span class="footer-logo-sub">Suxali Walo</span>
+      </div>
+      <p>Mouvement citoyen pour le développement et la solidarité dans le Walo, Sénégal.</p>
+      <div class="footer-socials">
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M24 4.56a9.83 9.83 0 0 1-2.83.78 4.93 4.93 0 0 0 2.16-2.72c-.95.56-2 .96-3.12 1.19a4.92 4.92 0 0 0-8.38 4.49A13.96 13.96 0 0 1 1.64 3.16a4.92 4.92 0 0 0 1.52 6.57A4.9 4.9 0 0 1 .96 9.1v.06a4.92 4.92 0 0 0 3.95 4.82 4.94 4.94 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.94 13.94 0 0 0 7.56 2.21c9.06 0 14.01-7.51 14.01-14.02 0-.21 0-.42-.02-.63A10 10 0 0 0 24 4.56z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.facebook.com/yaakartakkusuxaliwalo" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M21.95 5.005l-3.306-.004c-3.206 0-5.277 2.124-5.277 5.415v2.495H10.05v4.515h3.317l-.004 9.575h4.641l.004-9.575h3.806l-.003-4.514h-3.803v-2.117c0-1.018.268-1.526 1.732-1.526l2.199-.005.006-4.259z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M21.8 8s-.2-1.4-.8-2c-.77-.8-1.63-.81-2.02-.85C16.2 5 12 5 12 5s-4.2 0-6.98.15c-.4.04-1.25.05-2.02.85-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.77.8 1.78.77 2.23.85C6.8 18.97 12 19 12 19s4.2 0 6.98-.18c.4-.04 1.25-.05 2.02-.85.6-.6.8-2 .8-2S22 14.3 22 12.7v-1.5C22 9.6 21.8 8 21.8 8zM9.75 15.02V8.98l6.5 3.04-6.5 3z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+        </a>
+        <a href="https://web.telegram.org/" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M9.5 16.5l-.4 4.5c.6 0 .9-.3 1.3-.6l3.1-3 6.5 4.7c1.2.7 2 .3 2.3-1.1l4.2-19.6c.4-1.8-.6-2.5-1.7-2.1L1.3 9.5c-1.7.7-1.7 1.6-.3 2l5.6 1.8L19.8 5.8c.6-.4 1.1-.2.7.2" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+        </a>
+      </div>
+    </div>
 
-    <!-- COL 1 -->
-    <a href="index.html" class="footer-col">
-      <img src="images/logo4.png" alt="Logo" class="footer-logo">
-    </a>
-
-    <!-- COL 2 -->
-    <div class="footer-col">
-      <h4>MENU</h4>
+    <div class="footer-nav">
+      <h4>Navigation</h4>
       <ul>
-        <li><a href="index.html">Acceuil</a></li>
+        <li><a href="index.html">Accueil</a></li>
         <li><a href="test.html">Qui sommes-nous ?</a></li>
         <li><a href="test.html">Actualités</a></li>
         <li><a href="test.html">Projet</a></li>
@@ -402,107 +361,90 @@
       </ul>
     </div>
 
-    <!-- COL 3 -->
-    <div class="footer-col">
-      <h4>REJOIGNEZ-NOUS</h4>
+    <div class="footer-nav">
+      <h4>Rejoindre</h4>
       <ul>
         <li><a href="adhesion.html">Je m'engage</a></li>
         <li><a href="adhesion.html">Adhérer en ligne</a></li>
-        <li><a href="#">Adhérer par courrier</a></li>
         <li><a href="adhesion.html">Militer</a></li>
-        <li><a href="#" id="openContact">Contact</a></li>
+        <li><a href="#" id="openContactFooter">Contact</a></li>
       </ul>
     </div>
 
-    <!-- COL 4 -->
-    <div class="footer-col">
-      <h4>SUIVEZ-NOUS</h4>
-
-      <div class="socials">
-        <div class="social-icon">
-          <a href="https://x.com/?lang=fr" target="_blank">
-            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M24 4.56a9.83 9.83 0 0 1-2.83.78 4.93 4.93 0 0 0 2.16-2.72c-.95.56-2 .96-3.12 1.19a4.92 4.92 0 0 0-8.38 4.49A13.96 13.96 0 0 1 1.64 3.16a4.92 4.92 0 0 0 1.52 6.57A4.9 4.9 0 0 1 .96 9.1v.06a4.92 4.92 0 0 0 3.95 4.82 4.94 4.94 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.94 13.94 0 0 0 7.56 2.21c9.06 0 14.01-7.51 14.01-14.02 0-.21 0-.42-.02-.63A10 10 0 0 0 24 4.56z" fill="#1a8fe3"/></svg>
-          </a>
-        </div>
-        <div class="social-icon">
-          <a href="https://www.facebook.com/yaakartakkusuxaliwalo" target="_blank">
-            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M21.95 5.005l-3.306-.004c-3.206 0-5.277 2.124-5.277 5.415v2.495H10.05v4.515h3.317l-.004 9.575h4.641l.004-9.575h3.806l-.003-4.514h-3.803v-2.117c0-1.018.268-1.526 1.732-1.526l2.199-.005.006-4.259z" fill="#1a8fe3"/></svg>
-          </a>
-        </div>
-        <div class="social-icon">
-          <a href="https://www.youtube.com/watch?v=uHSuhs0d7oE" target="_blank">
-            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M21.8 8s-.2-1.4-.8-2c-.77-.8-1.63-.81-2.02-.85C16.2 5 12 5 12 5s-4.2 0-6.98.15c-.4.04-1.25.05-2.02.85-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.77.8 1.78.77 2.23.85C6.8 18.97 12 19 12 19s4.2 0 6.98-.18c.4-.04 1.25-.05 2.02-.85.6-.6.8-2 .8-2S22 14.3 22 12.7v-1.5C22 9.6 21.8 8 21.8 8zM9.75 15.02V8.98l6.5 3.04-6.5 3z" fill="#1a8fe3"/></svg>
-          </a>
-        </div>
-        <div class="social-icon">
-          <a href="https://www.instagram.com/?hl=fr" target="_blank">
-            <svg width="14" height="14" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="#1a8fe3" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="#1a8fe3" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="#1a8fe3"/></svg>
-          </a>
-        </div>
-        <div class="social-icon">
-          <a href="https://web.telegram.org/a/" target="_blank">
-            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M9.5 16.5l-.4 4.5c.6 0 .9-.3 1.3-.6l3.1-3 6.5 4.7c1.2.7 2 .3 2.3-1.1l4.2-19.6c.4-1.8-.6-2.5-1.7-2.1L1.3 9.5c-1.7.7-1.7 1.6-.3 2l5.6 1.8L19.8 5.8c.6-.4 1.1-.2.7.2"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="footer-newsletter">
-        <div class="newsletter-text">
-          <h3>Newsletter</h3>
-        </div>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Votre email" required>
-          <button type="submit">OK</button>
-        </form>
-      </div>
-
+    <div class="footer-newsletter">
+      <h4>Newsletter</h4>
+      <p>Restez informé des actions du mouvement.</p>
+      <form class="nl-form" onsubmit="return false">
+        <input type="email" placeholder="Votre adresse email" required>
+        <button type="submit">→</button>
+      </form>
     </div>
 
   </div>
 
-  <div class="sign">
-    © Yaakaar 2026
-    <div class="signature">Dev by <span>SKadiar Design</span></div>
+  <div class="footer-bottom">
+    <span>© Yaakaar Takku Suxali Walo 2026</span>
+    <span class="dev-by">Dev by <strong>SKadiar Design</strong></span>
   </div>
-
 </footer>
 
-<!-- FLOATING CONTACT WIDGET -->
-<div class="floating-contact-widget">
-  <button class="floating-main" id="toggleContact">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-      <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-  <div class="floating-menu" id="contactMenu">
-    <a href="https://wa.me/221XXXXXXXXX" target="_blank" class="menu-item whatsapp">💬 WhatsApp</a>
-    <a href="#" class="menu-item email" id="openContact">✉ Email</a>
-    <a href="tel:+221XXXXXXXXX" class="menu-item call">📞 Appel</a>
+<!-- ═══════════════════════ FLOATING CONTACT ═══════════════════════ -->
+<div class="float-widget" id="floatWidget">
+  <div class="float-menu" id="floatMenu">
+    <a href="https://wa.me/221XXXXXXXXX" target="_blank" rel="noopener noreferrer" class="float-item wa">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a href="#" class="float-item mail" id="openContactFloat">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 8 10-8"/></svg>
+      Email
+    </a>
+    <a href="tel:+221XXXXXXXXX" class="float-item phone">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.02 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.35-.35a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15v1.92z"/></svg>
+      Appel
+    </a>
   </div>
+  <button class="float-btn" id="floatToggle" aria-label="Contact">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-chat"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" class="icon-close" style="display:none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
 </div>
 
-<!-- MODAL CONTACT -->
-<div class="contact-modal" id="contactModal">
-  <div class="contact-box">
-    <span class="close-modal" id="closeModal">&times;</span>
-    <h2>Contactez-nous</h2>
-    <form>
-      <input type="text" placeholder="Nom complet" required>
-      <input type="email" placeholder="Email" required>
-      <input type="text" placeholder="Sujet">
-      <textarea placeholder="Votre message..." rows="5" required></textarea>
-      <button type="submit">Envoyer</button>
+<!-- ═══════════════════════ MODAL CONTACT ═══════════════════════ -->
+<div class="modal" id="contactModal">
+  <div class="modal-box">
+    <button class="modal-close" id="closeModal" aria-label="Fermer">&times;</button>
+    <div class="modal-header">
+      <h2>Contactez-nous</h2>
+      <p>Une question ? Un message ? Nous vous répondrons rapidement.</p>
+    </div>
+    <form onsubmit="return false" class="modal-form">
+      <div class="field-row">
+        <div class="field">
+          <input type="text" placeholder="Nom complet" required>
+        </div>
+        <div class="field">
+          <input type="email" placeholder="Email" required>
+        </div>
+      </div>
+      <div class="field">
+        <input type="text" placeholder="Sujet">
+      </div>
+      <div class="field">
+        <textarea placeholder="Votre message..." rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary full-w">Envoyer le message</button>
     </form>
   </div>
 </div>
 
-<!-- LIGHTBOX -->
+<!-- ═══════════════════════ LIGHTBOX 1 ═══════════════════════ -->
 <div class="lightbox" id="lightbox">
-  <button class="lb-close" id="lbClose">&times;</button>
+  <button class="lb-close" id="lbClose" aria-label="Fermer">&times;</button>
   <div class="lb-inner">
-    <button class="lb-arrow prev" id="lbPrev">&#8249;</button>
-    <div class="lb-slider">
-      <div class="lb-slider-track" id="lbTrack">
+    <button class="lb-arrow prev" id="lbPrev" aria-label="Précédent">&#8249;</button>
+    <div class="lb-track-wrap">
+      <div class="lb-track" id="lbTrack">
         <div class="lb-slide"><img src="images/sante/P1.jpg" alt="Photo 1"></div>
         <div class="lb-slide"><img src="images/sante/P2.jpg" alt="Photo 2"></div>
         <div class="lb-slide"><img src="images/sante/P3.jpg" alt="Photo 3"></div>
@@ -518,34 +460,19 @@
         <div class="lb-slide"><img src="images/sante/P13.jpg" alt="Photo 13"></div>
       </div>
     </div>
-    <button class="lb-arrow next" id="lbNext">&#8250;</button>
+    <button class="lb-arrow next" id="lbNext" aria-label="Suivant">&#8250;</button>
   </div>
   <div class="lb-counter" id="lbCounter">1 / 13</div>
-  <div class="lb-dots" id="lbDots">
-    <div class="lb-dot active"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-  </div>
 </div>
 
-<!-- LIGHTBOX 2 -->
+<!-- ═══════════════════════ LIGHTBOX 2 ═══════════════════════ -->
 <div class="lightbox" id="lightbox2">
-  <button class="lb-close" id="lbClose2">&times;</button>
+  <button class="lb-close" id="lbClose2" aria-label="Fermer">&times;</button>
   <div class="lb-inner">
-    <button class="lb-arrow prev" id="lbPrev2">&#8249;</button>
-    <div class="lb-slider">
-      <div class="lb-slider-track" id="lbTrack2">
-         <div class="lb-slide"><img src="images/invitation/P1.jpg" alt="Photo 1"></div>
+    <button class="lb-arrow prev" id="lbPrev2" aria-label="Précédent">&#8249;</button>
+    <div class="lb-track-wrap">
+      <div class="lb-track" id="lbTrack2">
+        <div class="lb-slide"><img src="images/invitation/P1.jpg" alt="Photo 1"></div>
         <div class="lb-slide"><img src="images/invitation/P2.jpg" alt="Photo 2"></div>
         <div class="lb-slide"><img src="images/invitation/P3.jpg" alt="Photo 3"></div>
         <div class="lb-slide"><img src="images/invitation/P4.jpg" alt="Photo 4"></div>
@@ -553,330 +480,12 @@
         <div class="lb-slide"><img src="images/invitation/P6.jpg" alt="Photo 6"></div>
       </div>
     </div>
-    <button class="lb-arrow next" id="lbNext2">&#8250;</button>
+    <button class="lb-arrow next" id="lbNext2" aria-label="Suivant">&#8250;</button>
   </div>
-  <div class="lb-counter" id="lbCounter2">1 / 10</div>
-  <div class="lb-dots" id="lbDots2">
-    <div class="lb-dot active"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-    <div class="lb-dot"></div>
-  </div>
+  <div class="lb-counter" id="lbCounter2">1 / 6</div>
 </div>
 
-<!-- SCRIPTS -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-<script>
-const burger = document.getElementById('burger');
-const nav = document.querySelector('.nav-links');
-burger.addEventListener('click', () => { nav.classList.toggle('active'); });
-</script>
-
-<script>
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('active'); } });
-});
-reveals.forEach(el => observer.observe(el));
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const map = L.map('map').setView([16.51038697797572, -15.504262749585891], 10);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap' }).addTo(map);
-  const icon = L.icon({ iconUrl: 'images/marker.png', iconSize: [40, 40] });
-  L.marker([16.51038697797572, -15.504262749585891], { icon }).addTo(map).bindPopup("Notre siège - Walo").openPopup();
-  map.zoomControl.setPosition('bottomright');
-  map.scrollWheelZoom.disable();
-  setTimeout(() => { map.invalidateSize(); }, 200);
-});
-</script>
-
-<script>
-const modal = document.getElementById("contactModal");
-const openBtn = document.getElementById("openContact");
-const closeBtn = document.getElementById("closeModal");
-
-function openModal(e) {
-  e.preventDefault();
-  modal.style.display = "flex";
-  document.body.style.overflow = "hidden";
-}
-function closeModal() {
-  modal.style.display = "none";
-  document.body.style.overflow = "auto";
-}
-
-openBtn.addEventListener("click", openModal);
-closeBtn.addEventListener("click", closeModal);
-window.addEventListener("click", function(e) { if (e.target === modal) closeModal(); });
-</script>
-
-<script>
-const widget = document.querySelector(".floating-contact-widget");
-const toggle = document.getElementById("toggleContact");
-toggle.addEventListener("click", () => { widget.classList.toggle("active"); });
-</script>
-
-<script>
-const contactBtn = document.getElementById("contactBtn");
-contactBtn.addEventListener("click", () => {
-  document.getElementById("contactModal").style.display = "flex";
-  document.body.style.overflow = "hidden";
-});
-</script>
-
-<script>
-const video = document.getElementById("myVideo");
-const overlay = document.getElementById("videoOverlay");
-const playPause = document.getElementById("playPause");
-const progress = document.getElementById("progress");
-const muteBtn = document.getElementById("muteBtn");
-const fullBtn = document.getElementById("fullBtn");
-
-// La vidéo ne se relance JAMAIS automatiquement — uniquement via le bouton play
-let userPaused = true;
-
-function togglePlay() {
-  if (video.paused) {
-    video.play();
-    overlay.style.display = "none";
-    userPaused = false;
-  } else {
-    video.pause();
-    overlay.style.display = "flex";
-    userPaused = true;
-  }
-}
-
-overlay.addEventListener("click", togglePlay);
-playPause.addEventListener("click", togglePlay);
-
-video.addEventListener("timeupdate", () => {
-  progress.value = (video.currentTime / video.duration) * 100;
-});
-progress.addEventListener("input", () => {
-  video.currentTime = (progress.value / 100) * video.duration;
-});
-muteBtn.addEventListener("click", () => {
-  video.muted = !video.muted;
-  muteBtn.textContent = video.muted ? "🔇" : "🔊";
-});
-fullBtn.addEventListener("click", () => {
-  if (!document.fullscreenElement) { video.requestFullscreen(); }
-  else { document.exitFullscreen(); }
-});
-
-// Pause automatique quand la vidéo sort du viewport, mais ne relance jamais automatiquement
-const videoObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting && !video.paused) {
-      video.pause();
-      overlay.style.display = "flex";
-      // On ne touche pas à userPaused : l'utilisateur devra cliquer play au retour
-    }
-  });
-}, { threshold: 0.4 });
-videoObserver.observe(video);
-
-// Pause automatique si l'onglet/la fenêtre devient invisible
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden && !video.paused) {
-    video.pause();
-    overlay.style.display = "flex";
-  }
-});
-</script>
-
-<script>
-/* ── SLIDER CARTE ── */
-const TOTAL = 13;
-let cardIndex = 0;
-const cardSlider = document.getElementById('cardSlider');
-const cardDots = document.getElementById('cardDots').children;
-
-function goCard(i) {
-  cardIndex = (i + TOTAL) % TOTAL;
-  cardSlider.style.transform = `translateX(-${cardIndex * 100}%)`;
-  Array.from(cardDots).forEach((d, j) => d.classList.toggle('active', j === cardIndex));
-}
-
-document.getElementById('cardPrev').addEventListener('click', e => { e.stopPropagation(); goCard(cardIndex - 1); });
-document.getElementById('cardNext').addEventListener('click', e => { e.stopPropagation(); goCard(cardIndex + 1); });
-Array.from(cardDots).forEach((d, i) => d.addEventListener('click', e => { e.stopPropagation(); goCard(i); }));
-
-/* Swipe tactile carte */
-let touchStartX = 0;
-cardSlider.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
-cardSlider.addEventListener('touchend', e => {
-  const diff = touchStartX - e.changedTouches[0].clientX;
-  if (Math.abs(diff) > 40) goCard(diff > 0 ? cardIndex + 1 : cardIndex - 1);
-});
-
-/* ── LIGHTBOX ── */
-let lbIndex = 0;
-const lightbox = document.getElementById('lightbox');
-const lbTrack = document.getElementById('lbTrack');
-const lbCounter = document.getElementById('lbCounter');
-const lbDots = document.getElementById('lbDots').children;
-
-function goLb(i) {
-  lbIndex = (i + TOTAL) % TOTAL;
-  lbTrack.style.transform = `translateX(-${lbIndex * 100}%)`;
-  lbCounter.textContent = `${lbIndex + 1} / ${TOTAL}`;
-  Array.from(lbDots).forEach((d, j) => d.classList.toggle('active', j === lbIndex));
-}
-
-document.getElementById('cardMedia').addEventListener('click', () => { goLb(cardIndex); lightbox.classList.add('open'); });
-document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); goLb(lbIndex - 1); });
-document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); goLb(lbIndex + 1); });
-document.getElementById('lbClose').addEventListener('click', () => { lightbox.classList.remove('open'); document.body.style.overflow = 'auto'; });
-lightbox.addEventListener('click', e => { if (e.target === lightbox) { lightbox.classList.remove('open'); document.body.style.overflow = 'auto'; } });
-Array.from(lbDots).forEach((d, i) => d.addEventListener('click', () => goLb(i)));
-
-/* Swipe tactile lightbox */
-let lbTouchX = 0;
-lbTrack.addEventListener('touchstart', e => { lbTouchX = e.touches[0].clientX; });
-lbTrack.addEventListener('touchend', e => {
-  const diff = lbTouchX - e.changedTouches[0].clientX;
-  if (Math.abs(diff) > 40) goLb(diff > 0 ? lbIndex + 1 : lbIndex - 1);
-});
-
-/* Clavier */
-document.addEventListener('keydown', e => {
-  if (!lightbox.classList.contains('open')) return;
-  if (e.key === 'ArrowRight') goLb(lbIndex + 1);
-  if (e.key === 'ArrowLeft')  goLb(lbIndex - 1);
-  if (e.key === 'Escape')     { lightbox.classList.remove('open'); document.body.style.overflow = 'auto'; }
-});
-
-/* Bloquer le scroll quand lightbox ouverte */
-document.getElementById('cardMedia').addEventListener('click', () => { document.body.style.overflow = 'hidden'; });
-</script>
-
-<script>
-/* ── SLIDER CARTE 2 ── */
-const TOTAL2 = 6;
-let cardIndex2 = 0;
-const cardSlider2 = document.getElementById('cardSlider2');
-const cardDots2 = document.getElementById('cardDots2').children;
-
-function goCard2(i) {
-  cardIndex2 = (i + TOTAL2) % TOTAL2;
-  cardSlider2.style.transform = `translateX(-${cardIndex2 * 100}%)`;
-  Array.from(cardDots2).forEach((d, j) => d.classList.toggle('active', j === cardIndex2));
-}
-
-document.getElementById('cardPrev2').addEventListener('click', e => { e.stopPropagation(); goCard2(cardIndex2 - 1); });
-document.getElementById('cardNext2').addEventListener('click', e => { e.stopPropagation(); goCard2(cardIndex2 + 1); });
-Array.from(cardDots2).forEach((d, i) => d.addEventListener('click', e => { e.stopPropagation(); goCard2(i); }));
-
-/* Swipe tactile carte 2 */
-let touchStartX2 = 0;
-cardSlider2.addEventListener('touchstart', e => { touchStartX2 = e.touches[0].clientX; });
-cardSlider2.addEventListener('touchend', e => {
-  const diff = touchStartX2 - e.changedTouches[0].clientX;
-  if (Math.abs(diff) > 40) goCard2(diff > 0 ? cardIndex2 + 1 : cardIndex2 - 1);
-});
-
-/* ── LIGHTBOX 2 ── */
-let lbIndex2 = 0;
-const lightbox2 = document.getElementById('lightbox2');
-const lbTrack2 = document.getElementById('lbTrack2');
-const lbCounter2 = document.getElementById('lbCounter2');
-const lbDots2 = document.getElementById('lbDots2').children;
-
-function goLb2(i) {
-  lbIndex2 = (i + TOTAL2) % TOTAL2;
-  lbTrack2.style.transform = `translateX(-${lbIndex2 * 100}%)`;
-  lbCounter2.textContent = `${lbIndex2 + 1} / ${TOTAL2}`;
-  Array.from(lbDots2).forEach((d, j) => d.classList.toggle('active', j === lbIndex2));
-}
-
-document.getElementById('cardMedia2').addEventListener('click', () => { goLb2(cardIndex2); lightbox2.classList.add('open'); document.body.style.overflow = 'hidden'; });
-document.getElementById('lbPrev2').addEventListener('click', e => { e.stopPropagation(); goLb2(lbIndex2 - 1); });
-document.getElementById('lbNext2').addEventListener('click', e => { e.stopPropagation(); goLb2(lbIndex2 + 1); });
-document.getElementById('lbClose2').addEventListener('click', () => { lightbox2.classList.remove('open'); document.body.style.overflow = 'auto'; });
-lightbox2.addEventListener('click', e => { if (e.target === lightbox2) { lightbox2.classList.remove('open'); document.body.style.overflow = 'auto'; } });
-Array.from(lbDots2).forEach((d, i) => d.addEventListener('click', () => goLb2(i)));
-
-/* Swipe tactile lightbox 2 */
-let lbTouchX2 = 0;
-lbTrack2.addEventListener('touchstart', e => { lbTouchX2 = e.touches[0].clientX; });
-lbTrack2.addEventListener('touchend', e => {
-  const diff = lbTouchX2 - e.changedTouches[0].clientX;
-  if (Math.abs(diff) > 40) goLb2(diff > 0 ? lbIndex2 + 1 : lbIndex2 - 1);
-});
-
-/* Clavier lightbox 2 */
-document.addEventListener('keydown', e => {
-  if (!lightbox2.classList.contains('open')) return;
-  if (e.key === 'ArrowRight') goLb2(lbIndex2 + 1);
-  if (e.key === 'ArrowLeft')  goLb2(lbIndex2 - 1);
-  if (e.key === 'Escape')     { lightbox2.classList.remove('open'); document.body.style.overflow = 'auto'; }
-});
-</script>
-
-<script>
-const video2 = document.getElementById("myVideo2");
-const overlay2 = document.getElementById("videoOverlay2");
-const playPause2 = document.getElementById("playPause2");
-const progress2 = document.getElementById("progress2");
-const muteBtn2 = document.getElementById("muteBtn2");
-const fullBtn2 = document.getElementById("fullBtn2");
-
-let userPaused2 = true;
-
-function togglePlay2() {
-  if (video2.paused) {
-    video2.play();
-    overlay2.style.display = "none";
-    userPaused2 = false;
-  } else {
-    video2.pause();
-    overlay2.style.display = "flex";
-    userPaused2 = true;
-  }
-}
-
-overlay2.addEventListener("click", togglePlay2);
-playPause2.addEventListener("click", togglePlay2);
-
-video2.addEventListener("timeupdate", () => {
-  progress2.value = (video2.currentTime / video2.duration) * 100;
-});
-progress2.addEventListener("input", () => {
-  video2.currentTime = (progress2.value / 100) * video2.duration;
-});
-muteBtn2.addEventListener("click", () => {
-  video2.muted = !video2.muted;
-  muteBtn2.textContent = video2.muted ? "🔇" : "🔊";
-});
-fullBtn2.addEventListener("click", () => {
-  if (!document.fullscreenElement) { video2.requestFullscreen(); }
-  else { document.exitFullscreen(); }
-});
-
-const videoObserver2 = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting && !video2.paused) {
-      video2.pause();
-      overlay2.style.display = "flex";
-    }
-  });
-}, { threshold: 0.4 });
-videoObserver2.observe(video2);
-
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden && !video2.paused) {
-    video2.pause();
-    overlay2.style.display = "flex";
-  }
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
