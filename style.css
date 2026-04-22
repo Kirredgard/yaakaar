@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════
-   YAAKAAR TAKKU SUXALI WALO — style.css v2
+   YAAKAAR TAKKU SUXALI WALO — style.css v3
    Design : bleu officiel, blanc, or
    ══════════════════════════════════════════════ */
 
@@ -59,7 +59,7 @@ a { color: inherit; text-decoration: none; }
 .header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 1000;
+  z-index: 2000;
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -285,9 +285,8 @@ a { color: inherit; text-decoration: none; }
 ══════════════════════════════════════════════ */
 .hero {
   position: relative;
-  height: auto;
-  padding: 110px 24px 72px;   /* top = header height + marge */
-  min-height: 0;
+  height: 100vh;
+  min-height: 600px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -297,8 +296,10 @@ a { color: inherit; text-decoration: none; }
 .hero-video {
   position: absolute;
   inset: 0;
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
   z-index: 0;
 }
 
@@ -569,7 +570,7 @@ a { color: inherit; text-decoration: none; }
    PRÉSIDENT
 ══════════════════════════════════════════════ */
 .president {
-  padding: 64px 32px 80px; /* extra bottom padding for the quote card that bleeds -24px */
+  padding: 64px 32px 80px;
   background: var(--bg);
   position: relative;
   overflow: visible;
@@ -1306,7 +1307,7 @@ a { color: inherit; text-decoration: none; }
   background: rgba(10,30,70,0.55);
   backdrop-filter: blur(8px);
   display: none; align-items: center; justify-content: center;
-  z-index: 2000; padding: 20px;
+  z-index: 3000; padding: 20px;
 }
 .modal.open { display: flex; }
 
@@ -1375,7 +1376,7 @@ a { color: inherit; text-decoration: none; }
   display: none;
   position: fixed; inset: 0;
   background: rgba(10,30,70,0.96);
-  z-index: 3000;
+  z-index: 4000;
   align-items: center; justify-content: center; flex-direction: column;
 }
 .lightbox.open { display: flex; }
@@ -1441,20 +1442,15 @@ a { color: inherit; text-decoration: none; }
 ══════════════════════════════════════════════ */
 @media (max-width: 1024px) {
 
-  /* HEADER */
   .header-inner { padding: 0 24px; gap: 16px; }
   .logo-l1 { font-size: 13px; }
   .btn-join { padding: 8px 16px; font-size: 12px; }
 
-  /* HERO */
-  .hero { padding: 100px 32px 64px; }
   .hero-title { font-size: clamp(44px, 7vw, 68px); }
 
-  /* TICKER */
   .ticker-section { overflow: hidden; }
   .municipal-ticker { padding: 10px 0; }
 
-  /* PRÉSIDENT */
   .president { padding: 56px 32px; }
   .president-inner { grid-template-columns: 1fr 1fr; gap: 48px; }
   .president-img-wrap img { height: 380px; }
@@ -1462,7 +1458,6 @@ a { color: inherit; text-decoration: none; }
   .president-visual { overflow: visible; }
   .president-content h2 { font-size: 36px; }
 
-  /* ACTUALITÉS — 2 colonnes, vidéos sur toute la largeur */
   .news { padding: 52px 32px; }
   .news-grid {
     grid-template-columns: 1fr 1fr;
@@ -1472,12 +1467,10 @@ a { color: inherit; text-decoration: none; }
   .card-large .video-wrap { height: 320px; }
   .card-large .slider-wrap { height: 280px; }
 
-  /* JOIN */
   .join-inner { grid-template-columns: 1fr; }
   .join-content { padding: 44px 40px; }
   .join-map-wrap { border-left: none; border-top: 1px solid var(--border); min-height: 340px; }
 
-  /* FOOTER */
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
   .footer-brand { grid-column: span 2; }
   .footer-newsletter { grid-column: span 2; }
@@ -1493,26 +1486,59 @@ a { color: inherit; text-decoration: none; }
   .logo-img { width: 36px; height: 36px; }
   .logo-l1 { font-size: 13px; }
   .logo-l2 { font-size: 9px; letter-spacing: 1.5px; }
-  .nav {
-    display: none;
-    position: fixed;
-    top: 60px; left: 0; right: 0; bottom: 0;
-    background: rgba(255,255,255,0.98);
-    padding: 28px 20px;
-    z-index: 999;
-    overflow-y: auto;
-    flex-direction: column;
-    border-top: 1px solid var(--border);
-  }
-  .nav.open { display: flex; }
-  .nav ul { flex-direction: column; gap: 4px; }
-  .nav a { font-size: 16px; padding: 12px 16px; border-radius: 10px; }
+  .header-right { margin-left: auto; }
   .socials-mini { display: none; }
   .burger { display: flex; }
   .btn-join { display: none; }
 
+  /* NAV MOBILE — z-index élevé, au-dessus du hero */
+  .nav {
+    display: none;
+    position: fixed;
+    top: 62px; left: 0; right: 0; bottom: 0;
+    background: #ffffff;
+    padding: 20px 16px;
+    z-index: 1999;
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    border-top: 2px solid var(--gold);
+    box-shadow: 0 8px 32px rgba(15,61,128,0.18);
+  }
+  .nav.open { display: flex; }
+  .nav ul {
+    width: 100%;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  .nav a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 17px;
+    font-weight: 600;
+    color: #0e1e3a;
+    padding: 15px 16px;
+    border-radius: 10px;
+    min-height: 52px;
+    background: transparent;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav a:hover,
+  .nav a.active {
+    background: rgba(26,95,180,0.08);
+    color: #1a5fb4;
+  }
+
   /* HERO */
-  .hero { padding: 90px 20px 56px; min-height: 88vh; }
+  .hero {
+    height: 100svh;
+    min-height: 600px;
+    padding: 0;
+  }
+  .hero-content { padding: 0 20px; }
   .hero-title { font-size: clamp(34px, 10vw, 52px); line-height: 1.05; }
   .hero-sub { font-size: 12px; letter-spacing: 2px; }
   .hero-actions { gap: 10px; }
@@ -1537,7 +1563,7 @@ a { color: inherit; text-decoration: none; }
   .president-content h2 { font-size: 30px; }
   .president-text { font-size: 14.5px; }
 
-  /* ACTUALITÉS — 1 colonne */
+  /* ACTUALITÉS */
   .news { padding: 40px 16px; }
   .news-grid { grid-template-columns: 1fr; gap: 12px; }
   .card-large { grid-column: auto; grid-row: auto; }
@@ -1587,24 +1613,22 @@ a { color: inherit; text-decoration: none; }
 ══════════════════════════════════════════════ */
 @media (max-width: 480px) {
 
-  /* HEADER */
-  .logo-text { display: none; }
+  /* LOGO TEXTE — visible même sur petit écran */
+  .logo-text { display: flex; }
+  .logo-l1 { font-size: 12px; }
+  .logo-l2 { font-size: 8px; letter-spacing: 1px; }
   .logo-img { width: 34px; height: 34px; }
 
-  /* HERO */
-  .hero { padding: 80px 16px 48px; min-height: 92vh; }
   .hero-title { font-size: clamp(30px, 9vw, 44px); }
   .hero-eyebrow { font-size: 10px; letter-spacing: 2px; }
   .hero-actions { flex-direction: column; align-items: center; width: 100%; }
   .hero-actions .btn-primary,
   .hero-actions .btn-ghost { width: 100%; justify-content: center; }
 
-  /* PRESIDENT */
   .president-img-wrap img { height: 260px; }
   .president-content h2 { font-size: 26px; }
   .sig-name { font-size: 18px; }
 
-  /* ACTUALITÉS */
   .news { padding: 32px 12px; }
   .card-large .video-wrap { height: 190px; aspect-ratio: unset; }
   .video-wrap { aspect-ratio: 16/9; height: auto; }
@@ -1613,17 +1637,14 @@ a { color: inherit; text-decoration: none; }
   .card-link h3 { font-size: 16px; }
   .card-tag { font-size: 9px; padding: 2px 8px; }
 
-  /* JOIN */
   .join-content { padding: 28px 12px; }
   .join-content h2 { font-size: 30px; }
   .join-map-wrap { min-height: 240px; }
 
-  /* STATS */
   .stats-inner { flex-wrap: wrap; }
   .stat-item { width: 50%; }
   .stat-divider { display: none; }
 
-  /* FOOTER */
   .footer { padding: 28px 12px 16px; }
   .footer-inner { grid-template-columns: 1fr; gap: 24px; }
   .footer-brand { grid-column: auto; }
@@ -1632,11 +1653,9 @@ a { color: inherit; text-decoration: none; }
   .nl-form { flex-direction: column; gap: 8px; }
   .nl-form button { padding: 10px; border-radius: var(--radius); }
 
-  /* MODAL */
   .modal { padding: 0; align-items: flex-end; }
   .modal-box { border-radius: var(--radius) var(--radius) 0 0; padding: 24px 16px 32px; max-height: 90vh; overflow-y: auto; }
 
-  /* FLOAT */
   .float-btn { width: 48px; height: 48px; }
   .float-item { font-size: 13px; padding: 9px 14px; min-width: 148px; }
 }
@@ -1645,7 +1664,6 @@ a { color: inherit; text-decoration: none; }
    RESPONSIVE — TRÈS PETIT MOBILE ≤ 360px
 ══════════════════════════════════════════════ */
 @media (max-width: 360px) {
-  .hero { padding: 76px 14px 44px; }
   .hero-title { font-size: 28px; line-height: 1.08; }
   .hero-actions { gap: 8px; }
   .hero-actions .btn-primary,
@@ -1660,206 +1678,17 @@ a { color: inherit; text-decoration: none; }
   .footer-inner { gap: 20px; }
   .footer-logo-main { font-size: 20px; }
 
-  /* Cibles tactiles minimum 44px */
-  .nav a { min-height: 44px; display: flex; align-items: center; }
+  .nav a { min-height: 44px; }
   .s-arrow { width: 36px; height: 36px; }
 }
 
 /* ══════════════════════════════════════════════
-   TOUCH — amélioration cibles tactiles globales
+   TOUCH — cibles tactiles globales
 ══════════════════════════════════════════════ */
 @media (pointer: coarse) {
   .s-arrow { width: 38px; height: 38px; }
   .lb-close { width: 44px; height: 44px; font-size: 24px; }
   .float-btn { width: 52px; height: 52px; }
   .burger { padding: 10px; }
-  .nav a { padding: 13px 16px; }
-}
-/* ══ CORRECTIFS MOBILE MENU ══ */
-@media (max-width: 768px) {
-
-  /* Burger et bouton J'adhère poussés à droite */
-  .header-right {
-    margin-left: auto;
-  }
-
-  /* Menu déroulant : liens bien visibles */
-  .nav.open {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav ul {
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
-  }
-
-  .nav a {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    font-size: 16px;
-    font-weight: 600;
-    color: #0e1e3a;            /* --text, couleur foncée bien visible */
-    padding: 14px 16px;
-    border-radius: 10px;
-    background: transparent;
-    min-height: 48px;
-  }
-   /* ══════════════════════════════════════════════
-   CORRECTIFS MOBILE — à coller en fin de style.css
-══════════════════════════════════════════════ */
-
-/* ── 1. MENU AU-DESSUS DU HERO ── */
-@media (max-width: 768px) {
-  .nav {
-    z-index: 1100 !important; /* passe au-dessus du hero et de tout */
-  }
-
-  /* ── 2. HERO : hauteur fixe pour que la vidéo s'affiche ── */
-  .hero {
-    min-height: 92vh !important;
-    height: 92vh;
-  }
-
-  .hero-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Force la lecture sur iOS */
-    -webkit-playsinline: true;
-  }
-
-  /* ── 3. MENU : liens visibles ── */
-  .header-right {
-    margin-left: auto;
-  }
-
-  .nav.open {
-    display: flex !important;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav ul {
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
-    justify-content: flex-start;
-  }
-
-  .nav a {
-    display: flex !important;
-    align-items: center;
-    width: 100%;
-    font-size: 17px;
-    font-weight: 600;
-    color: #0e1e3a !important;
-    padding: 14px 16px;
-    border-radius: 10px;
-    min-height: 52px;
-    background: transparent;
-  }
-
-  .nav a:hover,
-  .nav a.active {
-    background: rgba(26, 95, 180, 0.09) !important;
-    color: #1a5fb4 !important;
-  }
-}
-
-/* ── 4. LOGO TEXTE visible jusqu'à 480px ── */
-@media (max-width: 480px) {
-  .logo-text {
-    display: flex !important; /* annule le display:none */
-  }
-  .logo-l1 {
-    font-size: 12px;
-  }
-  .logo-l2 {
-    font-size: 8px;
-    letter-spacing: 1px;
-  }
-}
-
-  .nav a:hover,
-  .nav a.active {
-    background: rgba(26, 95, 180, 0.08);
-    color: #1a5fb4;
-  }
-}
-/* ══════════════════════════════════════════════
-   CORRECTIFS MOBILE FINAL
-══════════════════════════════════════════════ */
-
-/* NAV mobile au-dessus de TOUT */
-@media (max-width: 768px) {
-
-  .header { z-index: 2000; }
-
-  .nav {
-    z-index: 1999 !important;
-    top: 62px !important;
-  }
-
-  .nav.open {
-    display: flex !important;
-    flex-direction: column;
-    align-items: flex-start;
-    background: #ffffff !important;
-  }
-
-  .nav ul {
-    width: 100%;
-    flex-direction: column !important;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 4px;
-  }
-
-  .nav a {
-    display: flex !important;
-    align-items: center;
-    width: 100%;
-    font-size: 17px !important;
-    font-weight: 600 !important;
-    color: #0e1e3a !important;
-    padding: 15px 16px !important;
-    min-height: 52px;
-    border-radius: 10px;
-  }
-
-  .nav a:hover,
-  .nav a.active {
-    background: rgba(26,95,180,0.09) !important;
-    color: #1a5fb4 !important;
-  }
-
-  /* HERO : min-height pour que la vidéo ait de la hauteur */
-  .hero {
-    min-height: 100svh !important;
-    height: 100svh;
-  }
-
-  /* VIDEO : couvre tout le hero */
-  .hero-video {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    z-index: 0 !important;
-  }
-
-  /* LOGO texte visible sur mobile */
-  .logo-text { display: flex !important; }
-  .logo-l1 { font-size: 12px; }
-  .logo-l2 { font-size: 8px; letter-spacing: 1px; }
+  .nav a { padding: 15px 16px; }
 }
