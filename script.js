@@ -1,6 +1,6 @@
 /* ══════════════════════════════════════════════
-   YAAKAAR — script.js v2
-   Tous les scripts unifiés et corrigés
+   YAAKAAR — script.js v3
+   Corrections : autoplay iOS, nav z-index, burger
 ══════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,21 +10,51 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
-/* ── FORCE AUTOPLAY iOS ── */
-const heroVid = document.getElementById('heroVideo');
-if (heroVid) {
-  heroVid.play().catch(() => {
-    // Si autoplay bloqué, on rejoue au premier touch
-    document.addEventListener('touchstart', () => heroVid.play(), { once: true });
-  });
-}
+
+  /* ── FORCE AUTOPLAY VIDÉO HERO (iOS Safari) ── */
+  const heroVid = document.getElementById('heroVideo');
+  if (heroVid) {
+    // Attributs nécessaires pour iOS
+    heroVid.muted = true;
+    heroVid.playsInline = true;
+
+    const tryPlay = () => {
+      heroVid.play().catch(() => {});
+    };
+
+    // Tenter immédiatement
+    tryPlay();
+
+    // Si bloqué, rejouer au premier geste utilisateur
+    document.addEventListener('touchstart', tryPlay, { once: true });
+    document.addEventListener('click', tryPlay, { once: true });
+
+    // Relancer si la vidéo se fige (visible mais stoppée)
+    const heroObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting && heroVid.paused) tryPlay();
+      });
+    }, { threshold: 0.3 });
+    heroObserver.observe(heroVid);
+  }
+
   /* ── BURGER MENU ── */
   const burger = document.getElementById('burger');
   const nav    = document.getElementById('nav');
+
   burger?.addEventListener('click', () => {
     burger.classList.toggle('open');
     nav.classList.toggle('open');
     document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Fermer le nav si on clique sur un lien
+  nav?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('open');
+      nav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
   });
 
   /* ── REVEAL AU SCROLL ── */
@@ -72,8 +102,8 @@ if (heroVid) {
   }
 
   /* ── MODAL CONTACT ── */
-  const modal     = document.getElementById('contactModal');
-  const closeBtn  = document.getElementById('closeModal');
+  const modal    = document.getElementById('contactModal');
+  const closeBtn = document.getElementById('closeModal');
 
   function openModal(e) {
     e?.preventDefault();
@@ -85,13 +115,14 @@ if (heroVid) {
     document.body.style.overflow = '';
   }
 
-  // Tous les déclencheurs (IDs uniques)
   document.getElementById('contactBtn')?.addEventListener('click', openModal);
   document.getElementById('openContactFooter')?.addEventListener('click', openModal);
   document.getElementById('openContactFloat')?.addEventListener('click', openModal);
   closeBtn?.addEventListener('click', closeModal);
   modal?.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
 
   /* ── FLOATING WIDGET ── */
   const floatWidget = document.getElementById('floatWidget');
@@ -124,10 +155,10 @@ if (heroVid) {
     function togglePlay() {
       if (vid.paused) {
         vid.play();
-        overlay.style.display = 'none';
+        if (overlay) overlay.style.display = 'none';
       } else {
         vid.pause();
-        overlay.style.display = 'flex';
+        if (overlay) overlay.style.display = 'flex';
       }
     }
 
@@ -170,7 +201,7 @@ if (heroVid) {
   }
 
   /* ── SLIDER 1 (santé, 13 photos) ── */
-  setupSlider('cardSlider', 'cardPrev', 'cardNext', 'cardDots', 13, 'cardMedia', 'lightbox', 'lbTrack', 'lbCounter', 'lbClose', 'lbPrev', 'lbNext', 'lbDots');
+  setupSlider('cardSlider', 'cardPrev', 'cardNext', 'cardDots', 13, 'cardMedia', 'lightbox', 'lbTrack', 'lbCounter', 'lbClose', 'lbPrev', 'lbNext', null);
 
   /* ── SLIDER 2 (invitation, 6 photos) ── */
   setupSlider('cardSlider2', 'cardPrev2', 'cardNext2', 'cardDots2', 6, 'cardMedia2', 'lightbox2', 'lbTrack2', 'lbCounter2', 'lbClose2', 'lbPrev2', 'lbNext2', null);
