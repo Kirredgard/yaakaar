@@ -11,65 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     header.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
 
-  /* ── VIDÉO HERO — AUTOPLAY MOBILE ── */
-  const heroVideo = document.getElementById('heroVideo');
-  if (heroVideo) {
-    // iOS Safari exige muted en JS en plus de l'attribut HTML
-    heroVideo.muted = true;
-
-    const tryPlayHero = () => {
-      const p = heroVideo.play();
-      if (p !== undefined) {
-        p.catch(() => {
-          // Navigateur bloque l'autoplay → on attend le premier toucher
-          document.addEventListener('touchstart', function onFirstTouch() {
-            heroVideo.play().catch(() => {});
-          }, { once: true });
-        });
-      }
-    };
-
-    if (heroVideo.readyState >= 2) {
-      tryPlayHero();
-    } else {
-      heroVideo.addEventListener('canplay', tryPlayHero, { once: true });
-    }
-
-    // Certains Android mettent la vidéo en pause de force → on relance
-    heroVideo.addEventListener('pause', () => {
-      if (!heroVideo.ended) setTimeout(() => heroVideo.play().catch(() => {}), 200);
-    });
-  }
-
   /* ── BURGER MENU ── */
   const burger = document.getElementById('burger');
   const nav    = document.getElementById('nav');
-
-  function closeNav() {
-    burger?.classList.remove('open');
-    nav?.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  burger?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = nav.classList.toggle('open');
-    burger.classList.toggle('open', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
-
-  /* Fermer en cliquant en dehors du menu */
-  document.addEventListener('click', (e) => {
-    if (nav?.classList.contains('open') &&
-        !nav.contains(e.target) &&
-        !burger.contains(e.target)) {
-      closeNav();
-    }
-  });
-
-  /* Fermer quand on tape un lien dans le nav */
-  nav?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeNav);
+  burger?.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    nav.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
   });
 
   /* ── REVEAL AU SCROLL ── */
