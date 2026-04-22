@@ -1675,3 +1675,44 @@ a { color: inherit; text-decoration: none; }
   .burger { padding: 10px; }
   .nav a { padding: 13px 16px; }
 }
+/* ══ CORRECTIFS MOBILE MENU ══ */
+@media (max-width: 768px) {
+
+  /* Burger et bouton J'adhère poussés à droite */
+  .header-right {
+    margin-left: auto;
+  }
+
+  /* Menu déroulant : liens bien visibles */
+  .nav.open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav ul {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .nav a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0e1e3a;            /* --text, couleur foncée bien visible */
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: transparent;
+    min-height: 48px;
+  }
+
+  .nav a:hover,
+  .nav a.active {
+    background: rgba(26, 95, 180, 0.08);
+    color: #1a5fb4;
+  }
+}
