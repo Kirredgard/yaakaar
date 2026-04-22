@@ -64,6 +64,8 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   transition: background var(--transition), box-shadow var(--transition);
+  /* Crée un stacking context propre pour le header + nav */
+  isolation: isolate;
 }
 
 .header.scrolled {
@@ -287,10 +289,14 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   height: 100vh;
   min-height: 600px;
-  overflow: hidden;
+  /* overflow:clip au lieu de hidden — ne crée PAS de stacking context sur iOS */
+  overflow: clip;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Stacking context explicitement bas pour ne pas capturer le nav */
+  isolation: auto;
+  z-index: 0;
 }
 
 .hero-video {
@@ -1495,11 +1501,16 @@ a { color: inherit; text-decoration: none; }
   .nav {
     display: none;
     position: fixed;
-    top: 62px; left: 0; right: 0; bottom: 0;
+    top: 62px;
+    left: 0;
+    right: 0;
+    width: 100vw;       /* force pleine largeur, corrige le débordement Android */
+    bottom: 0;
     background: #ffffff;
     padding: 20px 16px;
-    z-index: 1999;
+    z-index: 9999;      /* max z-index, au-dessus de tout */
     overflow-y: auto;
+    overflow-x: hidden; /* empêche tout débordement horizontal */
     flex-direction: column;
     align-items: flex-start;
     border-top: 2px solid var(--gold);
