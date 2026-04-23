@@ -1628,9 +1628,9 @@ a { color: inherit; text-decoration: none; }
   .logo-l2 { font-size: 8px; letter-spacing: 1px; }
   .logo-img { width: 34px; height: 34px; }
 
-  .hero-title { font-size: clamp(20px, 9vw, 24px); }
+  .hero-title { font-size: clamp(30px, 9vw, 34px); }
   .hero-eyebrow { font-size: 8px; letter-spacing: 2px; }
-    .hero-sub {font-size: 8px;}
+    .hero-sub {font-size: 7px;}
   .hero-actions { flex-direction: column; align-items: center; width: 100%; }
   .hero-actions .btn-primary,
   .hero-actions .btn-ghost { width: 100%; justify-content: center; }
