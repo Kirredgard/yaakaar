@@ -1630,6 +1630,7 @@ a { color: inherit; text-decoration: none; }
 
   .hero-title { font-size: clamp(20px, 9vw, 24px); }
   .hero-eyebrow { font-size: 10px; letter-spacing: 2px; }
+    .hero-sub {font-size: 6px;}
   .hero-actions { flex-direction: column; align-items: center; width: 100%; }
   .hero-actions .btn-primary,
   .hero-actions .btn-ghost { width: 100%; justify-content: center; }
