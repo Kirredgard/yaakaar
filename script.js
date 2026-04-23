@@ -1,6 +1,6 @@
 /* ══════════════════════════════════════════════
-   YAAKAAR — script.js v4
-   Fix burger iOS Safari : scroll-lock sans overflow:hidden sur body
+   YAAKAAR — script.js v5
+   Fix burger iOS Safari + menu slide-in élégant
 ══════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,41 +31,62 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ══════════════════════════════════════════════
-     BURGER MENU — Fix iOS Safari
-     Problème : overflow:hidden sur <body> fait sauter
-     les éléments fixed et recalcule le viewport sur iOS.
-     Solution : on bloque le scroll via un wrapper <main>
-     ou via position:fixed sur le body + sauvegarde du scrollY.
+     BURGER MENU — Slide-in panel + overlay
   ══════════════════════════════════════════════ */
   const burger = document.getElementById('burger');
   const nav    = document.getElementById('nav');
   let scrollY  = 0;
 
+  // Injecte le bouton "J'adhère" dans le nav mobile s'il n'existe pas
+  if (nav && !nav.querySelector('.nav-join-btn')) {
+    const joinBtn = document.createElement('a');
+    joinBtn.href = 'adhesion.html';
+    joinBtn.className = 'nav-join-btn';
+    joinBtn.textContent = "J'adhère";
+    nav.appendChild(joinBtn);
+  }
+
+  // Crée un overlay cliquable global pour fermer en cliquant à gauche du panel
+  const navOverlay = document.createElement('div');
+  navOverlay.id = 'navOverlay';
+  navOverlay.style.cssText = `
+    position: fixed; inset: 0; z-index: 99998;
+    background: transparent;
+    display: none;
+    cursor: pointer;
+  `;
+  document.body.appendChild(navOverlay);
+
   function openNav() {
-    scrollY = window.scrollY;                      // 1. sauvegarder position
-    document.body.style.position   = 'fixed';      // 2. fixer le body
-    document.body.style.top        = `-${scrollY}px`; // 3. simuler la position
+    scrollY = window.scrollY;
+    document.body.style.position   = 'fixed';
+    document.body.style.top        = `-${scrollY}px`;
     document.body.style.left       = '0';
     document.body.style.right      = '0';
     document.body.style.overflow   = 'hidden';
     burger.classList.add('open');
     nav.classList.add('open');
+    navOverlay.style.display = 'block';
   }
 
   function closeNav() {
-    document.body.style.position   = '';           // 1. relâcher le body
+    document.body.style.position   = '';
     document.body.style.top        = '';
     document.body.style.left       = '';
     document.body.style.right      = '';
     document.body.style.overflow   = '';
-    window.scrollTo(0, scrollY);                   // 2. restaurer la position
+    window.scrollTo(0, scrollY);
     burger.classList.remove('open');
     nav.classList.remove('open');
+    navOverlay.style.display = 'none';
   }
 
   burger?.addEventListener('click', () => {
     nav.classList.contains('open') ? closeNav() : openNav();
   });
+
+  // Fermer si on clique sur l'overlay (zone gauche)
+  navOverlay.addEventListener('click', closeNav);
 
   // Fermer si on clique sur un lien
   nav?.querySelectorAll('a').forEach(link => {
