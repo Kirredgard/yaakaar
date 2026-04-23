@@ -37,8 +37,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav    = document.getElementById('nav');
   let scrollY  = 0;
 
-  // Injecte le bouton "J'adhère" dans le nav mobile s'il n'existe pas
+  // Injecte le bouton ✕ fermer dans le nav mobile
+  if (nav && !nav.querySelector('.nav-close-btn')) {
+    const closeNavBtn = document.createElement('button');
+    closeNavBtn.className = 'nav-close-btn';
+    closeNavBtn.setAttribute('aria-label', 'Fermer le menu');
+    closeNavBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>`;
+    closeNavBtn.addEventListener('click', () => closeNav());
+    nav.insertBefore(closeNavBtn, nav.firstChild);
+  }
+
+  // Injecte séparateur + bouton "J'adhère" dans le nav mobile
   if (nav && !nav.querySelector('.nav-join-btn')) {
+    const divider = document.createElement('div');
+    divider.className = 'nav-divider';
+    nav.appendChild(divider);
+
     const joinBtn = document.createElement('a');
     joinBtn.href = 'adhesion.html';
     joinBtn.className = 'nav-join-btn';
